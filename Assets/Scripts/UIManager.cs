@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public LevelUpUI mLevelUpUI;
-    [SerializeField] private PlayerLevel mPlayerLevel;
+    [SerializeField] private LevelUpUI levelUpUI;
 
     private void Awake()
     {
-        mPlayerLevel.mLevelUpEvent.AddListener(OnPlayerLevelUp);
+        EventManager.RegisterToPlayerLevelUp(OnPlayerLevelUp);
     }
 
     private void OnPlayerLevelUp()
     {
-        mLevelUpUI.gameObject.SetActive(true);
+        levelUpUI.gameObject.SetActive(true);
 	}
 }

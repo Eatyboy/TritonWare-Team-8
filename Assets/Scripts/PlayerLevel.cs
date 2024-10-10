@@ -11,7 +11,6 @@ public class PlayerLevel : MonoBehaviour
     public float CurrentExp => mCurrentExp;
     public float RequiredExp => mRequiredExp;
 
-    public UnityEvent mLevelUpEvent;
     private int mMaxLevel;
     private Queue<float> mLevelExpQueue= new Queue<float>();
     private float[] mExps = { 100, 200, 400, 800, 1000 };
@@ -28,13 +27,8 @@ public class PlayerLevel : MonoBehaviour
             mLevelExpQueue.Enqueue(mExps[i]);
         }
 
-        if (mLevelUpEvent == null)
-        {
-            mLevelUpEvent = new UnityEvent();
-        }
-
         UpdateRequriedExp();
-        mLevelUpEvent.AddListener(OnLevelUp); // For test, whoever want to be notified when level up can register this Event
+        EventManager.RegisterToPlayerLevelUp(OnLevelUp); // For test, whoever want to be notified when level up can register this Event
     }
 
     private void Update()
@@ -42,7 +36,7 @@ public class PlayerLevel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             // For test
-            AddExp(10f);
+            AddExp(30f);
 		}
         HandleLevelUp();
     }
@@ -67,7 +61,7 @@ public class PlayerLevel : MonoBehaviour
     private void LevelUp()
     {
         mCurrentLevel++;
-        mLevelUpEvent.Invoke();
+        EventManager.InvokeEvent(EventManager.Events.PlayerLevelUp);
     }
 
     private void UpdateRequriedExp()

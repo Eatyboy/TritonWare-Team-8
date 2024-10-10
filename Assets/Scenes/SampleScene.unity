@@ -204,19 +204,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 87660683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 588614117}
-        m_TargetAssemblyTypeName: LevelUpUI, Assembly-CSharp
-        m_MethodName: Deactive
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &87660683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,19 +325,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 98560425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 588614117}
-        m_TargetAssemblyTypeName: LevelUpUI, Assembly-CSharp
-        m_MethodName: Deactive
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &98560425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,19 +553,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 413540879}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 588614117}
-        m_TargetAssemblyTypeName: LevelUpUI, Assembly-CSharp
-        m_MethodName: Deactive
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &413540879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,7 +772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3940fc6332e642e4b4a9006d0004e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPlayerLevel: {fileID: 0}
   mPerk1Btn: {fileID: 98560424}
   mPerk2Btn: {fileID: 413540878}
   mPerk3Btn: {fileID: 87660682}
@@ -1463,7 +1426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679376833}
-  - component: {fileID: 1679376832}
+  - component: {fileID: 1679376834}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1471,20 +1434,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1679376832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679376831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530b21480b44f4bb49b52286cad48887, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mLevelUpUI: {fileID: 588614117}
-  mPlayerLevel: {fileID: 1762950904}
 --- !u!4 &1679376833
 Transform:
   m_ObjectHideFlags: 0
@@ -1500,6 +1449,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1679376834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679376831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 530b21480b44f4bb49b52286cad48887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUpUI: {fileID: 588614117}
 --- !u!1 &1762950899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
@@ -1520,9 +1482,6 @@ MonoBehaviour:
   mCurrentLevel: 0
   mCurrentExp: 0
   mRequiredExp: 0
-  mLevelUpEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1879379368
 GameObject:
   m_ObjectHideFlags: 3
