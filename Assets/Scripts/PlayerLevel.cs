@@ -11,17 +11,21 @@ public class PlayerLevel : MonoBehaviour
     public float CurrentExp => mCurrentExp;
     public float RequiredExp => mRequiredExp;
 
-    private const int mMaxLevel = 15;
-
     public UnityEvent mLevelUpEvent;
+    private int mMaxLevel;
     private Queue<float> mLevelExpQueue= new Queue<float>();
+    private float[] mExps = { 100, 200, 400, 800, 1000 };
 
     private void Awake()
     {
-        // TODO: Make a level dataset
-        for (int i=1; i<=mMaxLevel; i++)
+        mMaxLevel = mExps.Length;
+    }
+
+    private void Start()
+    {
+        for (int i=0; i<mExps.Length; i++)
         {
-            mLevelExpQueue.Enqueue(i * 2);
+            mLevelExpQueue.Enqueue(mExps[i]);
         }
 
         if (mLevelUpEvent == null)
@@ -38,7 +42,7 @@ public class PlayerLevel : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             // For test
-            AddExp(1f);
+            AddExp(10f);
 		}
         HandleLevelUp();
     }
