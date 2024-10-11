@@ -15,6 +15,8 @@ public class PlayerLevel : MonoBehaviour
     private Queue<float> mLevelExpQueue= new Queue<float>();
     private float[] mExps = { 100, 200, 400, 800, 1000 };
 
+    [SerializeField] private Animation levelUpAnim;
+
     private void Awake()
     {
         mMaxLevel = mExps.Length;
@@ -28,7 +30,7 @@ public class PlayerLevel : MonoBehaviour
         }
 
         UpdateRequriedExp();
-        EventManager.RegisterToPlayerLevelUp(OnLevelUp); // For test, whoever want to be notified when level up can register this Event
+        EventManager.RegisterToEvent(EventManager.Events.PlayerLevelUp, OnLevelUp); // For test, whoever want to be notified when level up can register this Event
     }
 
     private void Update()
@@ -61,6 +63,7 @@ public class PlayerLevel : MonoBehaviour
     private void LevelUp()
     {
         mCurrentLevel++;
+        levelUpAnim.Play();
         EventManager.InvokeEvent(EventManager.Events.PlayerLevelUp);
     }
 

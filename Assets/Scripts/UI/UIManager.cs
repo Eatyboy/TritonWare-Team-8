@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        EventManager.RegisterToPlayerLevelUp(OnPlayerLevelUp);
+        EventManager.RegisterToEvent(EventManager.Events.PlayerLevelUp, OnPlayerLevelUp);
     }
 
     private void OnPlayerLevelUp()

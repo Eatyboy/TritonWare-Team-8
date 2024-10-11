@@ -775,6 +775,11 @@ MonoBehaviour:
   mPerk1Btn: {fileID: 98560424}
   mPerk2Btn: {fileID: 413540878}
   mPerk3Btn: {fileID: 87660682}
+  player: {fileID: 1762950899}
+  availablePerks:
+  - {fileID: 11400000, guid: 571471ef33a1244b08e4a87fcf185ce4, type: 2}
+  - {fileID: 11400000, guid: 5c44147ef475a4203b03b827a0a5da7a, type: 2}
+  - {fileID: 11400000, guid: 12735b7af4eac4e968b7e4a5a9092de1, type: 2}
 --- !u!114 &588614118
 MonoBehaviour:
   m_ObjectHideFlags: 0

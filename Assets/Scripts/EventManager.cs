@@ -6,6 +6,7 @@ public static class EventManager
     public static class Events
     {
         public static UnityEvent PlayerLevelUp = new UnityEvent();
+        public static UnityEvent ChoosePerk = new UnityEvent();
     }
 
     static public void InvokeEvent(UnityEvent anUnityEvent)
@@ -13,13 +14,13 @@ public static class EventManager
         anUnityEvent?.Invoke();
     }
 
-    static public void RegisterToPlayerLevelUp(UnityAction aCall)
+    static public void RegisterToEvent(UnityEvent anEvent, UnityAction aCall)
     {
-        Events.PlayerLevelUp.AddListener(aCall);
+        anEvent.AddListener(aCall);
 	}
 
-    static public void UnregisterFromPlayerLevelUp(UnityAction aCall)
+    static public void UnregisterFromEvent(UnityEvent anEvent, UnityAction aCall)
     {
-        Events.PlayerLevelUp.RemoveListener(aCall);
+        anEvent.RemoveListener(aCall);
 	}
 }
