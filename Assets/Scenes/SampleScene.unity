@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 87660684}
   - component: {fileID: 87660683}
   - component: {fileID: 87660682}
+  - component: {fileID: 87660685}
   m_Layer: 5
   m_Name: Perk3Btn
   m_TagString: Untagged
@@ -243,6 +244,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 87660680}
   m_CullTransparentMesh: 1
+--- !u!114 &87660685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87660680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8632fabb5ff284e11ae48aed5eb76a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mGameObject: {fileID: 1762950899}
 --- !u!1 &98560422
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +269,7 @@ GameObject:
   - component: {fileID: 98560426}
   - component: {fileID: 98560425}
   - component: {fileID: 98560424}
+  - component: {fileID: 98560427}
   m_Layer: 5
   m_Name: Perk1Btn
   m_TagString: Untagged
@@ -364,6 +379,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98560422}
   m_CullTransparentMesh: 1
+--- !u!114 &98560427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98560422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8632fabb5ff284e11ae48aed5eb76a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mGameObject: {fileID: 1762950899}
 --- !u!1 &116948386
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,6 +494,54 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &139686763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 139686765}
+  - component: {fileID: 139686764}
+  m_Layer: 0
+  m_Name: PerkProvider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &139686764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139686763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e0f5a48e5a414789a9b5b972d703b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availablePerks:
+  - {fileID: 11400000, guid: 571471ef33a1244b08e4a87fcf185ce4, type: 2}
+  - {fileID: 11400000, guid: 5c44147ef475a4203b03b827a0a5da7a, type: 2}
+  - {fileID: 11400000, guid: 12735b7af4eac4e968b7e4a5a9092de1, type: 2}
+--- !u!4 &139686765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139686763}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0707788, y: 2.242562, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &404132497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6043684948583224358, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
@@ -483,6 +559,7 @@ GameObject:
   - component: {fileID: 413540880}
   - component: {fileID: 413540879}
   - component: {fileID: 413540878}
+  - component: {fileID: 413540881}
   m_Layer: 5
   m_Name: Perk2Btn
   m_TagString: Untagged
@@ -592,6 +669,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413540876}
   m_CullTransparentMesh: 1
+--- !u!114 &413540881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413540876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8632fabb5ff284e11ae48aed5eb76a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mGameObject: {fileID: 1762950899}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,14 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3940fc6332e642e4b4a9006d0004e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPerk1Btn: {fileID: 98560424}
-  mPerk2Btn: {fileID: 413540878}
-  mPerk3Btn: {fileID: 87660682}
-  player: {fileID: 1762950899}
-  availablePerks:
-  - {fileID: 11400000, guid: 571471ef33a1244b08e4a87fcf185ce4, type: 2}
-  - {fileID: 11400000, guid: 5c44147ef475a4203b03b827a0a5da7a, type: 2}
-  - {fileID: 11400000, guid: 12735b7af4eac4e968b7e4a5a9092de1, type: 2}
+  mPerkButtons: []
 --- !u!114 &588614118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1487,6 +1570,7 @@ MonoBehaviour:
   mCurrentLevel: 0
   mCurrentExp: 0
   mRequiredExp: 0
+  levelUpAnim: {fileID: 0}
 --- !u!1 &1879379368
 GameObject:
   m_ObjectHideFlags: 3
@@ -1736,3 +1820,4 @@ SceneRoots:
   - {fileID: 1421716865}
   - {fileID: 1641015295}
   - {fileID: 1679376833}
+  - {fileID: 139686765}

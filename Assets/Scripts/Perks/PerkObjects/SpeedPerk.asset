@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a03cc830a43e748528f51d4662e4a10b, type: 3}
-  m_Name: SpeedPerkSmall
+  m_Name: SpeedPerk
   m_EditorClassIdentifier: 
-  objectToApply: {fileID: 0}
-  perkName: SmallSpeed
+  perkName: SpeedPerk
   perkImage: {fileID: 0}
   speedToAdd: 5
