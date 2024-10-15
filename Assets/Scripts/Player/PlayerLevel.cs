@@ -78,6 +78,6 @@ public class PlayerLevel : MonoBehaviour
     // For test, other object can have OnLevelUp()
     private void OnLevelUp()
     {
-        Debug.Log("LevelUp! (" + mCurrentLevel + ")");
+        Debug.Log("LevelUp! (" + mCurrentLevel + "/" + mMaxLevel + ")");
 	}
 }

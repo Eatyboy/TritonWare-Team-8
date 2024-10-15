@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
-using TMPro;
 
 public class LevelUpUI : MonoBehaviour
 {
@@ -21,6 +19,4 @@ public class LevelUpUI : MonoBehaviour
     {
         Deactive();
 	}
-    
-
 }
