@@ -101,7 +101,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4598952167552283305}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -196,9 +196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smallProjectilePrefab: {fileID: 4468453746691645294, guid: cb4715d731fee4973935e910fad73867, type: 3}
-  smallProjectileCooldown: 10
   smallProjectileSpeed: 20
   projectileCount: 20
+  cooldown: 10
 --- !u!114 &4323743716810195249
 MonoBehaviour:
   m_ObjectHideFlags: 0
