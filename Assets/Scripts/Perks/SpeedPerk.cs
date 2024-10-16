@@ -4,9 +4,10 @@ using UnityEngine;
 public class SpeedPerk : IPerk 
 {
     public float speedToAdd;
-    public override void Apply(GameObject aGameObject)
+    public override void Apply(Player aPlayer)
     {
         // Logic to add player's speed 
         Debug.Log("Apply Speed Perk");
+        aPlayer.moveSpeed += speedToAdd;
     }
 }

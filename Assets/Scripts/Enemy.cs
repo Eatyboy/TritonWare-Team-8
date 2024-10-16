@@ -17,8 +17,9 @@ public class Enemy : MonoBehaviour
     public bool hasShield = false;
     public bool canDodge = false;
 
-    public GameObject projectile; // Enemy projectile or bullet
-    public GameObject shield; // Shield  if needed
+    //public GameObject projectile; // Enemy projectile or bullet
+    ////public GameObject shield; // Shield  if needed
+    public GameObject projectilePrefab;
     public Transform player;        // Reference to the player
     private float nextAttackTime = 0f;
 
@@ -37,8 +38,9 @@ public class Enemy : MonoBehaviour
         // Optional: Activate shield for advanced enemies
         if (hasShield)
         {
-            ActivateShield();
+            //ActivateShield();
         }
+        //player = FindObjectByType<Player>().transform;
 }
 
     void Update()
@@ -98,7 +100,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Take damage when hit by the player's projectile
-    public void TakeDamage(float damageAmount)
+    public void TakeDamage(int damageAmount)
     {
         // Check if the enemy has a shield
         if (hasShield)
@@ -131,10 +133,10 @@ public class Enemy : MonoBehaviour
     }
 
     // Optional: Activate shield for advanced enemies
-     public void ActivateShield()
-     {
-         Instantiate(shield, transform.position, Quaternion.identity, transform);
-     }
+     //public void ActivateShield()
+     //{
+     //    Instantiate(shield, transform.position, Quaternion.identity, transform);
+     //}
     
 
     // Destroy enemy when health reaches 0

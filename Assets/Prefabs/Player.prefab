@@ -15,9 +15,13 @@ GameObject:
   - component: {fileID: 9180351938382953119}
   - component: {fileID: -4978417975365497141}
   - component: {fileID: -7784179939563548618}
+  - component: {fileID: 4323743716810195249}
+  - component: {fileID: 3206054638780019710}
+  - component: {fileID: 1656410590321151552}
+  - component: {fileID: 4316692156861155876}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -936602377
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4468453746691645294, guid: 52940a6bd6877439ca9603903cff5363, type: 3}
-  firePoint: {fileID: 0}
   fireInterval: 2
 --- !u!114 &-7784179939563548618
 MonoBehaviour:
@@ -192,7 +195,74 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2086bfa4fccc7475da4652a00a7c3003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallProjectilePrefab: {fileID: 0}
-  firePoint: {fileID: 0}
+  smallProjectilePrefab: {fileID: 4468453746691645294, guid: cb4715d731fee4973935e910fad73867, type: 3}
   smallProjectileCooldown: 10
   smallProjectileSpeed: 20
+  projectileCount: 20
+--- !u!114 &4323743716810195249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4598952167552283305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ccfeb41dc0c042538ef7e52373732f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mCurrentLevel: 0
+  mCurrentExp: 0
+  mRequiredExp: 0
+  levelUpAnim: {fileID: 0}
+--- !u!114 &3206054638780019710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4598952167552283305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28cbafe459a9405abd63f3f277c1ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  squarePrefab: {fileID: 6716261173984779492, guid: 661ecf13512824d939feb201a359e6c5, type: 3}
+  player: {fileID: 6043684948583224358}
+  radius: 4
+  heightAmplitude: 2
+  duration: 5
+  cooldown: 10
+  numberOfSquares: 15
+  rotationSpeed: 50
+--- !u!114 &1656410590321151552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4598952167552283305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c209330ec3fefcd45a8595e2150841e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 654920919097390853, guid: 612270f64581e454fbd170d2127dd45b, type: 3}
+  player: {fileID: 6043684948583224358}
+  spawnRate: 3
+--- !u!114 &4316692156861155876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4598952167552283305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ccfeb41dc0c042538ef7e52373732f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mCurrentLevel: 0
+  mCurrentExp: 0
+  mRequiredExp: 0
+  levelUpAnim: {fileID: 0}
