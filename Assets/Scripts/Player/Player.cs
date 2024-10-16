@@ -8,8 +8,18 @@ public class Player : MonoBehaviour
     private InputActions ctrl;
     [SerializeField] private Rigidbody2D rb;
 
-    [SerializeField] public float moveSpeed;
+    // Core stats
+    public float moveSpeed;
+    public int maxHealth;
+    public float damage; // Scalar multiplier for damage
+    public float healthRegen; // Health regenerated per second
+    public float lifeSteal; // Percentage of damage dealth healed as health
+    public float projectileCount; // Number of additional projectiles that each attack fires
+    public float cooldownReduction;
 
+    public int currentHealth;
+
+    // Active Abilities
     private IAbility ability1;
     private IAbility ability2;
     private float ability1CooldownTimer;
@@ -19,9 +29,10 @@ public class Player : MonoBehaviour
     void Awake() {
         ctrl = new InputActions();
 
+        currentHealth = maxHealth;
+
         ability1 = GetComponent<Ability1>();
         ability2 = null;
-
         ability1CooldownTimer = 0;
         ability2CooldownTimer = 0;
     }
@@ -41,6 +52,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update() {
         float dt = Time.deltaTime;
+
+        currentHealth = (int)Mathf.Min(currentHealth + healthRegen * dt, maxHealth);
 
         if (ability1 != null && ability1CooldownTimer > 0) {
             ability1CooldownTimer -= dt;

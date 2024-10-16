@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         // Move the projectile forward in a straight line (in the direction it is facing)
-        transform.Translate(Vector3.up * speed * Time.deltaTime);  // For 2D, use Vector2.up
+        transform.Translate(speed * Time.deltaTime * direction);  // For 2D, use Vector2.up
     }
 
     // Destroy the projectile when it collides with something
