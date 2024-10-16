@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ability1 : MonoBehaviour
 {
     public GameObject smallProjectilePrefab;  // Prefab of the smaller projectile
-    public Transform firePoint;               // The point from where the projectile is fired
+    //public Transform firePoint;               // The point from where the projectile is fired
     public float smallProjectileCooldown = 10f; // Cooldown for firing small projectiles
     public float smallProjectileSpeed = 20f;  // Speed of the smaller projectiles
     public float projectileCount = 20f;
@@ -50,7 +50,7 @@ public class Ability1 : MonoBehaviour
             float angle = i * (360f / projectileCount); // Spread them out evenly
             Quaternion rotation = Quaternion.Euler(0, 0, angle); // Adjust based on 2D or 3D
 
-            GameObject smallProjectile = Instantiate(smallProjectilePrefab, firePoint.position, firePoint.rotation * rotation);
+            GameObject smallProjectile = Instantiate(smallProjectilePrefab, transform.position, transform.rotation * rotation);
 
             // Set the direction and speed for the smaller projectile
             Projectile smallProjectileScript = smallProjectile.GetComponent<Projectile>();

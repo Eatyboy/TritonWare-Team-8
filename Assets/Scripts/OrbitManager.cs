@@ -68,7 +68,7 @@ public class OrbitManager : MonoBehaviour
         {
             float angle = time * rotationSpeed * Mathf.Deg2Rad + (i * Mathf.PI * 2 / numberOfSquares);
             // Calculate position based on angle, with vertical movement included
-            Vector3 position = player.position + new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * heightAmplitude, Mathf.Sin(angle) * radius);
+            Vector3 position = player.position + new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * heightAmplitude, 0);
             squares[i].transform.position = position; // Update square position
         }
     }

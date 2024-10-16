@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private InputActions ctrl;
     [SerializeField] private Rigidbody2D rb;
 
-    [SerializeField] private float moveSpeed;
+    [SerializeField] public float moveSpeed;
 
     // Start is called before the first frame update
     void Awake() {
@@ -44,5 +44,33 @@ public class Player : MonoBehaviour
     }
 
     private void Ability2(InputAction.CallbackContext ctx) {
+    }
+
+    private int currentXP = 0;
+    private int xpForNextLevel = 100;
+    private int playerLevel = 1;
+
+    public void AddXP(int xp)
+    {
+        currentXP += xp;
+        if (currentXP >= xpForNextLevel)
+        {
+            LevelUp();
+        }
+    }
+
+    private void LevelUp()
+    {
+        playerLevel++;
+        currentXP = 0; // Reset XP
+        xpForNextLevel += 50; // Increase XP requirement for the next level
+        UpgradeStats(); // Increase player stats like health, speed, damage, etc.
+    }
+
+    private void UpgradeStats()
+    {
+        // Example stat upgrades
+        moveSpeed += 1f;
+        // Upgrade health, damage, etc.
     }
 }

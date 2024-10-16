@@ -4,7 +4,7 @@ using UnityEngine;
 public class StrengthPerk : IPerk 
 {
     public float strengthToAdd;
-    public override void Apply(GameObject aGameObject)
+    public override void Apply(Player aPlayer)
     {
         // Logic to add player's strength
         Debug.Log("Apply Strength Perk");

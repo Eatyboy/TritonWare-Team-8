@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject projectilePrefab;  // Prefab of the projectile to be fired
-    public Transform firePoint;          // The point from where the projectile is fired
+    //public Transform firePoint;          // The point from where the projectile is fired
     public float fireInterval = 2f;      // Time between each attack
 
     private float fireTimer;
@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
     void FireProjectile()
     {
         Debug.Log("Firing Projectile!");
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
 
         // Set projectile's movement direction
         Projectile projectileScript = projectile.GetComponent<Projectile>();

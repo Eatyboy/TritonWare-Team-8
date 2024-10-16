@@ -9,7 +9,7 @@ public class PerkButton : MonoBehaviour
     [SerializeField] private IPerk mPerk;
     private Button mButton;
     private PerkProvider perkProvider;
-    [SerializeField] private GameObject mGameObject;
+    [SerializeField] private Player mPlayer;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class PerkButton : MonoBehaviour
 
     private void ApplyPerk()
     {
-        mPerk.Apply(mGameObject);
+        mPerk.Apply(mPlayer);
         EventManager.InvokeEvent(EventManager.Events.ChoosePerk);
 	}
 
