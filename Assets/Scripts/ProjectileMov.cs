@@ -4,12 +4,16 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 10f;   // Speed of the projectile
     public float lifetime = 10f;  // Time after which the projectile will be destroyed automatically
+    public int dmg;
+    [SerializeField] bool enemy = false;
     private Vector2 direction;
+    private Player player;
 
     void Start()
     {
         // Destroy the projectile after `lifetime` seconds
         Destroy(gameObject, lifetime);
+        player = FindObjectOfType<Player>();
     }
 
     public void SetDirection(Vector2 dir)
@@ -24,9 +28,24 @@ public class Projectile : MonoBehaviour
     }
 
     // Destroy the projectile when it collides with something
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        // Add logic for collision (e.g., destroy the projectile or deal damage)
-        Destroy(gameObject);  // Destroy the projectile upon collision
+        if (collision.CompareTag("Enemy") && !enemy)
+        {
+            // Do dmg modification here
+            // Deal damage to the enemy
+            collision.GetComponent<Enemy>().TakeDamage((int)(dmg * player.damage));
+
+            // Destroy the projectile after dealing damage
+            Destroy(gameObject);
+        }else if (collision.CompareTag("Player") && enemy)
+        {
+            // Deal damage to the enemy
+            collision.GetComponent<Player>().TakeDamage(dmg);
+
+            // Destroy the projectile after dealing damage
+            Destroy(gameObject);
+        }
     }
+
 }

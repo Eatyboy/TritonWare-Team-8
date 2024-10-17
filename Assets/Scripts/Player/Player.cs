@@ -25,6 +25,13 @@ public class Player : MonoBehaviour
     private float ability1CooldownTimer;
     private float ability2CooldownTimer;
 
+    // Invulnerability shit
+    [SerializeField] private float invulnerabilityDuration = 1.5f; // Duration of invulnerability
+    private float transparencyFlashSpeed = 0.2f;
+    private bool isInvulnerable = false;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+
     // Start is called before the first frame update
     void Awake() {
         ctrl = new InputActions();
@@ -68,6 +75,12 @@ public class Player : MonoBehaviour
                 ability2CooldownTimer = 0;
             }
         }
+    }
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
     }
 
     private void FixedUpdate() {
@@ -119,5 +132,58 @@ public class Player : MonoBehaviour
         // Example stat upgrades
         moveSpeed += 1f;
         // Upgrade health, damage, etc.
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        //Debug.Log("Hit!");
+        //// If the enemy has a shield, remove it first
+        //if (hasShield)
+        //{
+        //    RemoveShield();
+        //    hasShield = false;
+        //    return; // Ignore the damage for this hit
+        //}
+
+        // Apply damage to the enemy's health
+        if (!isInvulnerable)
+        {
+            currentHealth -= damageAmount;
+
+            if (currentHealth <= 0)
+            {
+                //Die();
+            }
+            else
+            {
+                StartCoroutine(InvulnerabilityCoroutine());
+            }
+        }
+
+    }
+
+    private IEnumerator InvulnerabilityCoroutine()
+    {
+        isInvulnerable = true;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < invulnerabilityDuration)
+        {
+            // Flashing effect: toggle transparency on and off
+            spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
+            yield return new WaitForSeconds(transparencyFlashSpeed);
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(transparencyFlashSpeed);
+
+            elapsedTime += transparencyFlashSpeed * 2; // Because of two WaitForSeconds
+        }
+
+
+        isInvulnerable = false;
+    }
+
+    private void Die()
+    {
+        // TODO
     }
 }
