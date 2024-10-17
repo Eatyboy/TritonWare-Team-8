@@ -5,9 +5,18 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public GameObject enemyPrefab; // Enemy to spawn
+    public GameObject specialEnemy;
     public Transform player;       // Player reference
     public float spawnRate = 3f;   // Time interval between spawns
     private float nextSpawnTime = 0f;
+
+    private void Start()
+    {
+        // Set spawn position to the top left corner of the screen
+        Vector2 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, Camera.main.nearClipPlane));
+
+        Instantiate(specialEnemy, spawnPosition, Quaternion.identity);
+    }
 
     void Update()
     {

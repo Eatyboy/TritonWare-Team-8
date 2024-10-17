@@ -128547,6 +128547,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1656410590321151552, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: specialEnemy
+      value: 
+      objectReference: {fileID: 8855765211442047573, guid: cd733b971e1e946078a5cd3c6437d86f, type: 3}
+    - target: {fileID: 3206054638780019710, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3982178882069972195, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0dafad1cd827f43828dbd7cfe3b132f8, type: 3}
     - target: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -128590,6 +128602,10 @@ PrefabInstance:
     - target: {fileID: 6043684948583224358, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9180351938382953119, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: maxHealth
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
