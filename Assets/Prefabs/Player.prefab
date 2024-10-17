@@ -169,6 +169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7636754023017977583}
   moveSpeed: 5
+  dmgMult: 1
+  health: 10
 --- !u!114 &-4978417975365497141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 4468453746691645294, guid: 52940a6bd6877439ca9603903cff5363, type: 3}
   fireInterval: 2
+  dmg: 3
 --- !u!114 &-7784179939563548618
 MonoBehaviour:
   m_ObjectHideFlags: 0

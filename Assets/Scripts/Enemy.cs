@@ -5,25 +5,23 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Basic properties
-    public int health = 100;
-    public int damage = 10;
+    public int health = 10;
+    public int dmg = 3;
     public int moveSpeed = 2;
     public int projectileSpeed = 5;
-    public int attackRate = 2;
+    public int attackRate = 5;
     public int spawnDistance = 10;
 
-// Advanced properties (optional)
-    public bool canTeleport = false;
-    public bool hasShield = false;
-    public bool canDodge = false;
-
-    //public GameObject projectile; // Enemy projectile or bullet
-    ////public GameObject shield; // Shield  if needed
     public GameObject projectilePrefab;
     public Transform player;        // Reference to the player
     private float nextAttackTime = 0f;
 
     private Rigidbody2D rb;         // Rigidbody for movement
+
+    // Advanced properties (optional)
+    public bool canTeleport = false;
+    public bool hasShield = false;
+    public bool canDodge = false;
 
     void Start()
     {
@@ -34,17 +32,11 @@ public class Enemy : MonoBehaviour
         // Randomize spawn position at a certain distance from the player
         Vector2 spawnPosition = (Random.insideUnitCircle.normalized * spawnDistance) + (Vector2)player.position;
         transform.position = spawnPosition;
-
-        // Optional: Activate shield for advanced enemies
-        if (hasShield)
-        {
-            //ActivateShield();
-        }
-        //player = FindObjectByType<Player>().transform;
-}
+    }
 
     void Update()
     {
+        // If the enemy can teleport, start teleporting logic
         if (canTeleport)
         {
             StartCoroutine(TeleportEnemy());
@@ -60,7 +52,12 @@ public class Enemy : MonoBehaviour
             AttackPlayer();
             nextAttackTime = Time.time + attackRate;
         }
-}
+    }
+
+    private string TeleportEnemy()
+    {
+        throw new System.NotImplementedException();
+    }
 
     // Move the enemy towards the player
     private void MoveTowardsPlayer()
@@ -69,79 +66,67 @@ public class Enemy : MonoBehaviour
         rb.MovePosition((Vector2)transform.position + direction * moveSpeed * Time.deltaTime);
     }
 
-    // Teleport the enemy to a new random location around the player
-    private IEnumerator TeleportEnemy()
-    {
-        yield return new WaitForSeconds(3f); // Teleport every 3 seconds
-        Vector2 teleportPosition = (Random.insideUnitCircle.normalized * spawnDistance) + (Vector2)player.position;
-        transform.position = teleportPosition;
-    }
-
     // Shoot projectiles towards the player
     private void AttackPlayer()
     {
-        if (canDodge)
-        {
-            //DodgeProjectiles(); // Advanced behavior to dodge player bullets
-        }
-
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
         Vector2 direction = (player.position - transform.position).normalized;
         rbProjectile.velocity = direction * projectileSpeed;
-}
-
-    // Optional: Dodge the player's projectiles (for advanced enemies)
-    private void DodgeProjectiles()
-    {
-        // Implement dodging logic (e.g., moving left/right rapidly)
-        Vector2 dodgeDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-        rb.MovePosition((Vector2)transform.position + dodgeDirection * moveSpeed * 1.5f * Time.deltaTime);
     }
 
     // Take damage when hit by the player's projectile
     public void TakeDamage(int damageAmount)
     {
-        // Check if the enemy has a shield
+        Debug.Log("Hit!");
+        // If the enemy has a shield, remove it first
         if (hasShield)
         {
-            // Remove the shield
             RemoveShield();
-            hasShield = false; // Update the shield status
-            return; // Ignore damage for this hit, but the shield is now removed
+            hasShield = false;
+            return; // Ignore the damage for this hit
         }
 
-        // If no shield, apply damage to the enemy's health
+        // Apply damage to the enemy's health
         health -= damageAmount;
 
-        // Check if health is 0 or less and destroy the enemy
+        // If health drops to 0 or below, destroy the enemy
         if (health <= 0)
         {
             Die();
         }
     }
 
-    // Method to remove or destroy the shield
+    // Method to remove the shield (if enemy has one)
     private void RemoveShield()
     {
-        // Assuming the shield is a child object of the enemy, destroy it
-        Transform shield = transform.Find("shield"); // Use the name of your shield prefab
+        // Assuming the shield is a child object of the enemy
+        Transform shield = transform.Find("shield");
         if (shield != null)
         {
-            Destroy(shield.gameObject); // Remove the shield from the enemy
+            Destroy(shield.gameObject);
         }
     }
 
-    // Optional: Activate shield for advanced enemies
-     //public void ActivateShield()
-     //{
-     //    Instantiate(shield, transform.position, Quaternion.identity, transform);
-     //}
-    
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            // Deal damage to the enemy
+            collision.GetComponent<Player>().TakeDamage(dmg);
 
-    // Destroy enemy when health reaches 0
+            // Destroy the projectile after dealing damage
+            // Destroy(gameObject);
+
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            float knockbackForce = 5f; // Adjust the knockback force to your preference
+            GetComponent<Rigidbody2D>().AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+        }
+    }
+
+    // Destroy the enemy when health reaches 0
     private void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject);  // Destroy the enemy game object
     }
 }

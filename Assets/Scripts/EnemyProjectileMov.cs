@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EProjectile : MonoBehaviour
 {
-    public float speed = 10f;   // Speed of the projectile
+    public float speed = 8f;   // Speed of the projectile
     public float lifetime = 10f;  // Time after which the projectile will be destroyed automatically
+    public int dmg = 2;  // Damage of the projectile
     private Vector2 direction;
 
     void Start()
@@ -24,9 +25,15 @@ public class Projectile : MonoBehaviour
     }
 
     // Destroy the projectile when it collides with something
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        // Add logic for collision (e.g., destroy the projectile or deal damage)
-        Destroy(gameObject);  // Destroy the projectile upon collision
+        if (collision.CompareTag("Player"))
+        {
+            // Deal damage to the enemy
+            collision.GetComponent<Player>().TakeDamage(dmg);
+
+            // Destroy the projectile after dealing damage
+            Destroy(gameObject);
+        }
     }
 }

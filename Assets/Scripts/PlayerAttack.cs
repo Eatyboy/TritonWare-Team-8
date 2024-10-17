@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject projectilePrefab;  // Prefab of the projectile to be fired
     //public Transform firePoint;          // The point from where the projectile is fired
     public float fireInterval = 2f;      // Time between each attack
+    public int dmg = 3;
 
     private float fireTimer;
 
