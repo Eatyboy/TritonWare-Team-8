@@ -9,5 +9,6 @@ public class SpeedPerk : IPerk
         // Logic to add player's speed 
         Debug.Log("Apply Speed Perk");
         aPlayer.moveSpeed += speedToAdd;
+        aPlayer.anim.Play(aPlayer.SPEEDUP_ANIM);
     }
 }

@@ -8,5 +8,7 @@ public class StrengthPerk : IPerk
     {
         // Logic to add player's strength
         Debug.Log("Apply Strength Perk");
+        aPlayer.damage += strengthToAdd;
+        aPlayer.anim.Play(aPlayer.DAMAGEUP_ANIM);
     }
 }

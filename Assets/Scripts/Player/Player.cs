@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
 public class Player : MonoBehaviour
 {
     private InputActions ctrl;
@@ -25,6 +26,14 @@ public class Player : MonoBehaviour
     private float ability1CooldownTimer;
     private float ability2CooldownTimer;
 
+    public Animator anim;
+    private static string speedUp = "SpeedUp";
+    private static string healthUp = "HealthUp";
+    private static string damageUp = "DamageUp";
+    public string SPEEDUP_ANIM { get => speedUp; }
+    public string HEALTHUP_ANIM { get => healthUp; }
+    public string DAMAGEUP_ANIM { get => damageUp; }
+
     // Start is called before the first frame update
     void Awake() {
         ctrl = new InputActions();
@@ -35,6 +44,7 @@ public class Player : MonoBehaviour
         ability2 = null;
         ability1CooldownTimer = 0;
         ability2CooldownTimer = 0;
+        anim = GetComponent<Animator>();
     }
 
     private void OnEnable() {
