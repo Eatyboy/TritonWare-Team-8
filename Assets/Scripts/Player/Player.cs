@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     // Core stats
     public float moveSpeed;
-    public int maxHealth;
+    public float maxHealth;
     public float damage; // Scalar multiplier for damage
     public float healthRegen; // Health regenerated per second
     public float lifeSteal; // Percentage of damage dealth healed as health
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     public float cooldownReduction;
     public float luck;
 
-    public int currentHealth;
+    public float currentHealth;
 
     // Active Abilities
     private IAbility ability1;
@@ -43,7 +43,12 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
-    // Start is called before the first frame update
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+    }
+
     void Awake() {
         ctrl = new InputActions();
 
@@ -89,12 +94,6 @@ public class Player : MonoBehaviour
                 ability2CooldownTimer = 0;
             }
         }
-    }
-
-    void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
     }
 
     private void FixedUpdate() {

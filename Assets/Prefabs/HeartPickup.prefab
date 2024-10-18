@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7080836306809366146}
   - component: {fileID: 8448379959360469254}
   - component: {fileID: 1208663839739807668}
+  - component: {fileID: -2094052837213494948}
   m_Layer: 0
   m_Name: HeartPickup
-  m_TagString: Untagged
+  m_TagString: HealthPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,3 +149,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!114 &-2094052837213494948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111773028943249552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d42559c730474414882436d89c413555, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 5

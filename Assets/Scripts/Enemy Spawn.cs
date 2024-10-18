@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public GameObject[] enemyPrefabs; // Array of enemy prefabs: Phantom, Warlord, Sentinel, Wanderer, Boss, Cloud and CycloneCloud
-    public GameObject specialEnemy;
+    public GameObject specialEnemy = null;
     public Transform player;       // Player reference
     public float spawnRate = 3f;   // Time interval between spawns
     private float nextSpawnTime = 0f;
@@ -16,7 +16,7 @@ public class EnemySpawn : MonoBehaviour
         // Set spawn position to the top left corner of the screen
         Vector2 spawnPosition = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, Camera.main.nearClipPlane));
 
-        Instantiate(specialEnemy, spawnPosition, Quaternion.identity);
+        //Instantiate(specialEnemy, spawnPosition, Quaternion.identity);
     }
 
     void Update()

@@ -60,6 +60,7 @@ public class Projectile : MonoBehaviour
         {
             // Player projectile hits the enemy
             collision.GetComponent<Enemy>().TakeDamage(dmg);
+            DamagePopupManager.Instance.NewPopup(dmg, collision.transform.position);
             Destroy(gameObject); // Destroy the projectile after dealing damage
         }
         else if (collision.CompareTag("Obstacle"))

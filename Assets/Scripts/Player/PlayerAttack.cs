@@ -5,9 +5,9 @@ public class PlayerAttack : MonoBehaviour
 {
     public GameObject projectilePrefab;  // Prefab of the projectile to be fired
     //public Transform firePoint;          // The point from where the projectile is fired
-    public float fireInterval = 2f;      // Time between each attack
+    public float fireInterval;      // Time between each attack
 
-    private float fireTimer;
+    private float fireTimer = 0;
 
     void Update()
     {
@@ -17,7 +17,6 @@ public class PlayerAttack : MonoBehaviour
         if (fireTimer >= fireInterval)
         {
             FireProjectile(GameManager.Instance.GetDirectionToMouse(transform));
-            Debug.Log("Fired a projectile with direction " + GameManager.Instance.GetDirectionToMouse(transform));
 
             fireTimer = 0f;  // Reset the timer
         }

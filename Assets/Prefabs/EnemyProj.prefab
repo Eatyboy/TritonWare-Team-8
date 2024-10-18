@@ -123,13 +123,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4468453746691645294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a4d7ad1bbe614381a764ac452340479, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b2a15be69236fb4194cd2d78d8f0ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 10
-  dmg: 2
-  enemy: 1
+  dmg: 0
+  isEnemyProjectile: 1
 --- !u!58 &8492234363647995228
 CircleCollider2D:
   m_ObjectHideFlags: 0

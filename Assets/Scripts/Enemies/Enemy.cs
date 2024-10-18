@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     ////public GameObject shield; // Shield  if needed
     public GameObject projectilePrefab;
     public Transform player;        // Reference to the player
-    private float nextAttackTime = 0f;
+    public float nextAttackTime;
     public XPDrop xpPrefab; 
 
     private Rigidbody2D rb;         // Rigidbody for movement
