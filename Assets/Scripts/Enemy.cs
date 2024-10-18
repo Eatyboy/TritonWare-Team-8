@@ -7,12 +7,13 @@ public class Enemy : MonoBehaviour
     // Basic properties
     public int health = 100;
     public int damage = 10;
-    public int moveSpeed = 2;
-    public int projectileSpeed = 5;
-    public int attackRate = 2;
+    public float moveSpeed = 2f;
+    public float attackRate = 2f;
+    public float projectileSpeed = 5f;
     public int spawnDistance = 10;
+    private float nextAttackTime = 0f;
 
-// Advanced properties (optional)
+    // Advanced properties (optional)
     public bool canTeleport = false;
     public bool hasShield = false;
     public bool canDodge = false;
@@ -20,7 +21,6 @@ public class Enemy : MonoBehaviour
     public GameObject projectile; // Enemy projectile or bullet
     public GameObject shield; // Shield  if needed
     public Transform player;        // Reference to the player
-    private float nextAttackTime = 0f;
 
     private Rigidbody2D rb;         // Rigidbody for movement
 
