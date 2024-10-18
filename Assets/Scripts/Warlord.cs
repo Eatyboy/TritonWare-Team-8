@@ -8,7 +8,7 @@ public class Warlord : Enemy
     public GameObject beamPrefab;
     private bool attackTypeSwitch = true;
 
-    protected override void Update()
+    void Update()
     {
         if (Time.time >= nextAttackTime)
         {

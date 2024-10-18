@@ -8,7 +8,7 @@ public class Phantom : Enemy
     public int burstCount = 3;  // Number of shots in a burst
     public float burstInterval = 0.2f; // Time between burst shots
 
-    protected override void Update()
+    void Update()
     {
         MoveInPattern();
         if (Time.time >= nextAttackTime)

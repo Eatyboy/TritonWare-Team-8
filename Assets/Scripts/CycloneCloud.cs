@@ -9,7 +9,7 @@ public class CycloneCloud : Enemy
     public float beamLength = 5f;
     public float beamDuration = 3f;
 
-    protected override void Update()
+    void Update()
     {
         if (Time.time >= nextAttackTime)
         {

@@ -9,7 +9,7 @@ public class Boss : Enemy
     public GameObject homingProjectilePrefab;
     public GameObject beamPrefab;
 
-    protected override void Update()
+    void Update()
     {
         if (Time.time >= nextAttackTime)
         {
