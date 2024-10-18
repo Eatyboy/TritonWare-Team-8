@@ -23,8 +23,8 @@ public class Beam : MonoBehaviour
         Vector2 startPosition = transform.position;
         Vector2 endPosition = startPosition + (direction * length);
 
-        // Initialize LineRenderer for the beam visual
-        lineRenderer = gameObject.AddComponent<LineRenderer>();
+        // Draw the beam as a line
+        LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
         lineRenderer.positionCount = 2;
@@ -73,7 +73,7 @@ public class Beam : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Player>().TakeDamage(10); // Deal damage to the player
+            collision.GetComponent<Player>().TakeDamage(5);
         }
     }
 }
