@@ -34,7 +34,10 @@ public class Projectile : MonoBehaviour
         {
             // Do dmg modification here
             // Deal damage to the enemy
-            collision.GetComponent<Enemy>().TakeDamage((int)(dmg * player.damage));
+            int damage = (int)(dmg * player.damage);
+            collision.GetComponent<Enemy>().TakeDamage(damage);
+
+            DamagePopupManager.Instance.NewPopup(damage, collision.transform.position);
 
             // Destroy the projectile after dealing damage
             Destroy(gameObject);
