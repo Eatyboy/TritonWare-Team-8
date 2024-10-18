@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
+public static class PlayerAnimations
+{ 
+    public static string SPEEDUP_ANIM = "SpeedUp";
+    public static string HEALTHUP_ANIM = "HealthUp";
+    public static string DAMAGEUP_ANIM = "DamageUp";
+}
+
 public class Player : MonoBehaviour
 {
     private InputActions ctrl;
@@ -27,12 +34,6 @@ public class Player : MonoBehaviour
     private float ability2CooldownTimer;
 
     public Animator anim;
-    private static string speedUp = "SpeedUp";
-    private static string healthUp = "HealthUp";
-    private static string damageUp = "DamageUp";
-    public string SPEEDUP_ANIM { get => speedUp; }
-    public string HEALTHUP_ANIM { get => healthUp; }
-    public string DAMAGEUP_ANIM { get => damageUp; }
 
     // Invulnerability shit
     [SerializeField] private float invulnerabilityDuration = 1.5f; // Duration of invulnerability

@@ -65,6 +65,7 @@ public class PlayerLevel : MonoBehaviour
         mCurrentLevel++;
         // levelUpAnim.Play();
         EventManager.InvokeEvent(EventManager.Events.PlayerLevelUp);
+        Time.timeScale = 0;
     }
 
     private void UpdateRequriedExp()

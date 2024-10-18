@@ -10,6 +10,7 @@ public class LevelUpUI : MonoBehaviour
     {
         EventManager.RegisterToEvent(EventManager.Events.ChoosePerk, OnChoosePerk);
     }
+
     public void Deactive()
     {
         gameObject.SetActive(false);
@@ -18,5 +19,6 @@ public class LevelUpUI : MonoBehaviour
     public void OnChoosePerk()
     {
         Deactive();
+        Time.timeScale = 1;
 	}
 }

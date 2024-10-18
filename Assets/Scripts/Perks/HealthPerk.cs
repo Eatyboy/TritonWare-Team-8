@@ -10,6 +10,6 @@ public class HealthPerk : IPerk
         Debug.Log("Apply Health Perk");
         aPlayer.maxHealth += healthToAdd;
         aPlayer.currentHealth += healthToAdd;
-        aPlayer.anim.Play(aPlayer.HEALTHUP_ANIM);
+        aPlayer.anim.Play(PlayerAnimations.HEALTHUP_ANIM);
     }
 }
