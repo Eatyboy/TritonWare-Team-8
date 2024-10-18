@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public float lifeSteal; // Percentage of damage dealth healed as health
     public float projectileCount; // Number of additional projectiles that each attack fires
     public float cooldownReduction;
+    public float luck;
 
     public int currentHealth;
 
@@ -72,6 +73,8 @@ public class Player : MonoBehaviour
         float dt = Time.deltaTime;
 
         currentHealth = (int)Mathf.Min(currentHealth + healthRegen * dt, maxHealth);
+
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
 
         if (ability1 != null && ability1CooldownTimer > 0) {
             ability1CooldownTimer -= dt;
