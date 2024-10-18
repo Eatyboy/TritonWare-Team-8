@@ -9,6 +9,7 @@ public class EnemySpawn : MonoBehaviour
     public Transform player;       // Player reference
     public float spawnRate = 3f;   // Time interval between spawns
     private float nextSpawnTime = 0f;
+    public float spawnChance;
 
     private void Start()
     {
