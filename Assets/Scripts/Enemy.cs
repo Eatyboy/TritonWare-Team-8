@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public int projectileSpeed = 5;
     public int attackRate = 2;
     public int spawnDistance = 10;
+    public int xp = 30; // adjust this for different enemy
 
     // Advanced properties (optional)
     public bool hasShield = false;
@@ -181,6 +182,7 @@ public class Enemy : MonoBehaviour
     // Destroy enemy when health reaches 0
     private void Die()
     {
+        EventManager.InvokeEvent(EventManager.Events.EnemyDie, xp);
         Destroy(gameObject);
     }
 }

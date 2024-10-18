@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
         ability2CooldownTimer = ability2.GetCooldown();
     }
 
-    private int currentXP = 0;
+    [SerializeField] private int currentXP = 0;
     private int xpForNextLevel = 100;
     private int playerLevel = 1;
 
