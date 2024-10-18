@@ -201,7 +201,6 @@ public class Enemy : MonoBehaviour
     // Destroy enemy when health reaches 0
     private void Die()
     {
-        // EventManager.InvokeEvent(EventManager.Events.EnemyDie, xp);
         DropXP();
         Destroy(gameObject);
     }

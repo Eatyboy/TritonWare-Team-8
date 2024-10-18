@@ -7,16 +7,15 @@ using TMPro;
 public class PerkButton : MonoBehaviour
 {
     [SerializeField] private IPerk mPerk;
-    private Button mButton;
-    private Image mImage;
-    private PerkProvider perkProvider;
     [SerializeField] private Player mPlayer;
+    [SerializeField] private Image mPerkImage;
+    private Button mButton;
+    private PerkProvider perkProvider;
 
     private void Awake()
     {
         perkProvider = FindObjectOfType<PerkProvider>();
         mButton = GetComponent<Button>();
-        mImage = GetComponent<Image>();
         mButton.onClick.AddListener(ApplyPerk);
         EventManager.RegisterToEvent(EventManager.Events.PlayerLevelUp, UpdatePerk);
     }
@@ -36,6 +35,6 @@ public class PerkButton : MonoBehaviour
     {
         mPerk = perkProvider.GetComponent<PerkProvider>().GetRandomPerk();
         gameObject.GetComponentInChildren<TMP_Text>().text = mPerk.perkName;
-        mImage.sprite = mPerk.sprite;
+        mPerkImage.sprite = mPerk.sprite;
     }
 }
