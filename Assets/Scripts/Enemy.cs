@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Shoot projectiles towards the player
-    private void AttackPlayer()
+    public void AttackPlayer()
     {
         if (canDodge)
         {

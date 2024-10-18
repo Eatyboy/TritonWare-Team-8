@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject enemyPrefab; // Enemy to spawn
+    public GameObject[] enemyPrefabs; // Array of enemy prefabs: Phantom, Warlord, Sentinel, Wanderer, Boss, Cloud and CycloneCloud
     public GameObject specialEnemy;
     public Transform player;       // Player reference
     public float spawnRate = 3f;   // Time interval between spawns
@@ -23,14 +23,16 @@ public class EnemySpawn : MonoBehaviour
     {
         if (Time.time >= nextSpawnTime)
         {
-            SpawnEnemy();
+            SpawnRandomEnemy();
             nextSpawnTime = Time.time + spawnRate;
         }
     }
 
-    void SpawnEnemy()
+    void SpawnRandomEnemy()
     {
-        Instantiate(enemyPrefab, GetRandomSpawnPosition(), Quaternion.identity);
+        int randomIndex = Random.Range(0, enemyPrefabs.Length);
+        GameObject selectedEnemy = enemyPrefabs[randomIndex];
+        Instantiate(selectedEnemy, GetRandomSpawnPosition(), Quaternion.identity);
     }
 
     Vector2 GetRandomSpawnPosition()

@@ -109,4 +109,3 @@ public class CloudEnemy : MonoBehaviour
     }
 
 }
-
