@@ -5,20 +5,20 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Basic properties
-    public int health = 100;
-    public int damage = 10;
+    public float health = 100;
+    public float damage = 10;
     public float moveSpeed = 2f;
     public float attackRate = 2f;
     public float projectileSpeed = 5f;
-    public int spawnDistance = 10;
-    private float nextAttackTime = 0f;
+    public float spawnDistance = 10;
+    public float nextAttackTime = 0f;
 
     // Advanced properties (optional)
     public bool canTeleport = false;
     public bool hasShield = false;
     public bool canDodge = false;
 
-    public GameObject projectile; // Enemy projectile or bullet
+    public GameObject projectilePrefab; // Enemy projectile or bullet
     public GameObject shield; // Shield  if needed
     public Transform player;        // Reference to the player
 
@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Shoot projectiles towards the player
-    private void AttackPlayer()
+    public void AttackPlayer()
     {
         if (canDodge)
         {
