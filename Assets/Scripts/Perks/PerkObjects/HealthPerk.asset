@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HealthPerk
   m_EditorClassIdentifier: 
   perkName: HealthPerk
-  perkImage: {fileID: 0}
+  sprite: {fileID: 961009804, guid: db364ff7f03d1470086a0f11e0c02479, type: 3}
   healthToAdd: 10

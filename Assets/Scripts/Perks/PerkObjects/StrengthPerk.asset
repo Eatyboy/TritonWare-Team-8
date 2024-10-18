@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: StrengthPerk
   m_EditorClassIdentifier: 
   perkName: StrengthPerk
-  perkImage: {fileID: 0}
+  sprite: {fileID: -938364597, guid: e68f484a118ab492c8d5df6431da2cdf, type: 3}
   strengthToAdd: 10

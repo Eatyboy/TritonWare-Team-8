@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "SpeedPerk", menuName = "Perk/SpeedPerk")]
 public class SpeedPerk : IPerk 

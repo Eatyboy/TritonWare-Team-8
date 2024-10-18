@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SpeedPerk
   m_EditorClassIdentifier: 
   perkName: SpeedPerk
-  perkImage: {fileID: 0}
   speedToAdd: 5
+  sprite: {fileID: 458467133, guid: 7ad2285f8649743f3b035efc9d308748, type: 3}
