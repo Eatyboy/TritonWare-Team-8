@@ -112,6 +112,7 @@ MonoBehaviour:
   invulnerabilityDuration: 1.5
   projectilePrefab: {fileID: 4468453746691645294, guid: ede70c5718237427ebfe2a5b9e31c3ad, type: 3}
   player: {fileID: 0}
+  xpPrefab: {fileID: 5888330213938844328, guid: c2e58b89e522f41ccafdf741429cdbd0, type: 3}
 --- !u!50 &-2256984446782819768
 Rigidbody2D:
   serializedVersion: 4

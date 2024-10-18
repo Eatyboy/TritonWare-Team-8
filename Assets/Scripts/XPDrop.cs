@@ -10,7 +10,7 @@ public class XPDrop : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<Player>().AddXP(xpValue);
+            collision.GetComponent<PlayerLevel>().AddExp(xpValue);
             Destroy(gameObject);
         }
     }

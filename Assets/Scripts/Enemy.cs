@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public int projectileSpeed = 5;
     public int attackRate = 2;
     public int spawnDistance = 10;
-    public int xp = 30; // adjust this for different enemy
+    public int xp; // adjust this for different enemy
 
     // Advanced properties (optional)
     public bool canTeleport = false;
@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform player;        // Reference to the player
     private float nextAttackTime = 0f;
+    public XPDrop xpPrefab; 
 
     private Rigidbody2D rb;         // Rigidbody for movement
 
@@ -192,10 +193,16 @@ public class Enemy : MonoBehaviour
         isInvulnerable = false;
     }
 
+    private void DropXP()
+    {
+        Instantiate(xpPrefab, transform.position, Quaternion.identity);
+	}
+
     // Destroy enemy when health reaches 0
     private void Die()
     {
-        EventManager.InvokeEvent(EventManager.Events.EnemyDie, xp);
+        // EventManager.InvokeEvent(EventManager.Events.EnemyDie, xp);
+        DropXP();
         Destroy(gameObject);
     }
 }
