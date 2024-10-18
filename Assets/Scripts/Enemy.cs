@@ -13,7 +13,6 @@ public class Enemy : MonoBehaviour
     public int spawnDistance = 10;
 
     // Advanced properties (optional)
-    public bool canTeleport = false;
     public bool hasShield = false;
     public bool canDodge = false;
 
@@ -55,36 +54,24 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (canTeleport)
-        {
-            StartCoroutine(TeleportEnemy());
-        }
-        else
-        {
-            MoveTowardsPlayer();
-        }
-
         // Attack the player at regular intervals
         if (Time.time >= nextAttackTime)
         {
             AttackPlayer();
             nextAttackTime = Time.time + attackRate;
         }
-}
+    }
+
+    private void FixedUpdate()
+    {
+        MoveTowardsPlayer();
+    }
 
     // Move the enemy towards the player
     private void MoveTowardsPlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;
         rb.MovePosition((Vector2)transform.position + direction * moveSpeed * Time.deltaTime);
-    }
-
-    // Teleport the enemy to a new random location around the player
-    private IEnumerator TeleportEnemy()
-    {
-        yield return new WaitForSeconds(3f); // Teleport every 3 seconds
-        Vector2 teleportPosition = (Random.insideUnitCircle.normalized * spawnDistance) + (Vector2)player.position;
-        transform.position = teleportPosition;
     }
 
     // Shoot projectiles towards the player
