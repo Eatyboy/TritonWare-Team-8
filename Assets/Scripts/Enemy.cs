@@ -12,10 +12,17 @@ public class Enemy : MonoBehaviour
     public int attackRate = 2;
     public int spawnDistance = 10;
 
-// Advanced properties (optional)
+    // Advanced properties (optional)
     public bool canTeleport = false;
     public bool hasShield = false;
     public bool canDodge = false;
+
+    // Invulnerability shit
+    [SerializeField] private float invulnerabilityDuration = 1.5f; // Duration of invulnerability
+    private float transparencyFlashSpeed = 0.2f;
+    private bool isInvulnerable = false;
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
 
     //public GameObject projectile; // Enemy projectile or bullet
     ////public GameObject shield; // Shield  if needed
@@ -41,7 +48,10 @@ public class Enemy : MonoBehaviour
             //ActivateShield();
         }
         //player = FindObjectByType<Player>().transform;
-}
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+    }
 
     void Update()
     {
@@ -112,12 +122,18 @@ public class Enemy : MonoBehaviour
         }
 
         // If no shield, apply damage to the enemy's health
-        health -= damageAmount;
-
-        // Check if health is 0 or less and destroy the enemy
-        if (health <= 0)
+        if (!isInvulnerable)
         {
-            Die();
+            health -= damageAmount;
+
+            if (health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                StartCoroutine(InvulnerabilityCoroutine());
+            }
         }
     }
 
@@ -133,11 +149,47 @@ public class Enemy : MonoBehaviour
     }
 
     // Optional: Activate shield for advanced enemies
-     //public void ActivateShield()
-     //{
-     //    Instantiate(shield, transform.position, Quaternion.identity, transform);
-     //}
-    
+    //public void ActivateShield()
+    //{
+    //    Instantiate(shield, transform.position, Quaternion.identity, transform);
+    //}
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Deal damage to the enemy
+            collision.gameObject.GetComponent<Player>().TakeDamage(damage);
+
+            // Destroy the projectile after dealing damage
+            // Destroy(gameObject);
+
+            float knockbackForce = 5f; // Adjust the knockback force to your preference
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+
+        }
+    }
+
+    private IEnumerator InvulnerabilityCoroutine()
+    {
+        isInvulnerable = true;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < invulnerabilityDuration)
+        {
+            // Flashing effect: toggle transparency on and off
+            spriteRenderer.color = new Color(originalColor.r, originalColor.g, originalColor.b, 0.5f);
+            yield return new WaitForSeconds(transparencyFlashSpeed);
+            spriteRenderer.color = originalColor;
+            yield return new WaitForSeconds(transparencyFlashSpeed);
+
+            elapsedTime += transparencyFlashSpeed * 2; // Because of two WaitForSeconds
+        }
+
+
+        isInvulnerable = false;
+    }
 
     // Destroy enemy when health reaches 0
     private void Die()
