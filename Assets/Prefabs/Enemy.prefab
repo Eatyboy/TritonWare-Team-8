@@ -105,6 +105,7 @@ MonoBehaviour:
   projectileSpeed: 5
   attackRate: 100
   spawnDistance: 10
+  xp: 30
   canTeleport: 0
   hasShield: 0
   canDodge: 0
