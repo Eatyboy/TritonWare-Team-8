@@ -110,3 +110,5 @@ MonoBehaviour:
   hoverSpeed: 1
   horizontalMovementAmplitude: 10
   horizontalMovementSpeed: 0.5
+  sprite1: {fileID: 21300000, guid: a4bc469c8459c4c3695ca04aba3b97d6, type: 3}
+  sprite2: {fileID: 21300000, guid: 237a90e2c60634475a613608c0e3a850, type: 3}
