@@ -1,41 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// Enemy that moves slowly and shoots
-public class Wanderer : MonoBehaviour
+// Enemy that moves and splits
+public class Wanderer : IEnemy
 {
-    public GameObject projectilePrefab;
-    public float moveSpeed = 2f;
-    public float attackRate = 2f;
-    private Transform player;
-    private float nextAttackTime = 0f;
+    [SerializeField] private int numberOfSplits = 1;
+    public float splitScaleFactor = 0.9f;
+    private int maxHP;
 
-    void Start()
+    new void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        maxHP = health;
+        base.Start();
     }
 
-    void Update()
+    protected override void Die()
     {
-        MoveTowardsPlayer();
-
-        if (Time.time >= nextAttackTime)
+        if (numberOfSplits > 0)
         {
-            ShootPlayer();
-            nextAttackTime = Time.time + attackRate;
+            SplitIntoSmallerEnemies();
         }
+
+        base.Die();
+
     }
 
-    private void MoveTowardsPlayer()
+    private void SplitIntoSmallerEnemies()
     {
-        Vector2 direction = (player.position - transform.position).normalized;
-        transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
-    }
+        for (int i = 0; i < 2; i++)  // Spawn two smaller versions
+        {
+            // Instantiate a clone of the current enemy (the same prefab)
+            GameObject smallerEnemy = Instantiate(gameObject, transform.position, Quaternion.identity);
 
-    private void ShootPlayer()
-    {
-        Vector2 direction = (player.position - transform.position).normalized;
-        GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().velocity = direction * 5f;
+            // Adjust the scale of the smaller enemy
+            smallerEnemy.transform.localScale = transform.localScale * splitScaleFactor; // Scale down the size
+
+            // Get reference to the enemy script and modify its properties
+            Wanderer enemyScript = smallerEnemy.GetComponent<Wanderer>();
+
+            // Reduce health and other properties for the smaller version
+            enemyScript.health = (int) Mathf.Max(1, (this.maxHP * splitScaleFactor) / 2); // Half the health, at least 1
+            enemyScript.ms = this.ms * 1.2f;                    // Optionally, increase speed
+            enemyScript.numberOfSplits = this.numberOfSplits - 1; // Decrease split count
+
+            // Optional: randomize the direction slightly to avoid overlap
+            Rigidbody2D rb = smallerEnemy.GetComponent<Rigidbody2D>();
+            Vector2 randomDirection = new Vector2(Random.Range(-0.25f, 0.25f), Random.Range(-0.25f, 0.25f)).normalized;
+            rb.AddForce(randomDirection * 2f, ForceMode2D.Impulse);  // Adjust force as needed
+        }
     }
 }

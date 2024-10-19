@@ -18,7 +18,7 @@ public class Ability1 : MonoBehaviour, IAbility
     // Instantiate and fire five smaller projectiles
     public void Activate() 
     {
-        Debug.Log("Firing Small Projectiles!");
+        
         for (int i = 0; i < projectileCount; i++)
         {
             // Calculate the offset angle for spreading the projectiles

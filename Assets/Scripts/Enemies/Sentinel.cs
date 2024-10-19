@@ -2,20 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // Stationary shooter enemy
-public class Sentinel : MonoBehaviour
+public class Sentinel : IEnemy
 {
+
     public GameObject projectilePrefab;
-    public float attackRate = 1.5f;
-    private Transform player;
-    private float nextAttackTime = 0f;
+    public float attackRate;
+    private float nextAttackTime = 1;
 
-    void Start()
+    new void Update()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
-    void Update()
-    {
+        base.Update();
         if (Time.time >= nextAttackTime)
         {
             ShootPlayer();
@@ -23,6 +19,8 @@ public class Sentinel : MonoBehaviour
         }
     }
 
+    // Move the enemy towards the player
+    
     private void ShootPlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;

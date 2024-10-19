@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
         Rigidbody2D rbProjectile = projectile.GetComponent<Rigidbody2D>();
         Vector2 direction = (player.position - transform.position).normalized;
         rbProjectile.velocity = direction * projectileSpeed;
-}
+    }
 
     // Optional: Dodge the player's projectiles (for advanced enemies)
     private void DodgeProjectiles()

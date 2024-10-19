@@ -128952,7 +128952,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 654920919097390853, guid: 612270f64581e454fbd170d2127dd45b, type: 3}
+  - {fileID: 1920264242673381619, guid: a4c2d5ea557fe4be48b48d3462c58266, type: 3}
+  - {fileID: 236629634531324251, guid: 6d94813ae947b4abbb1c3ed67d35cd54, type: 3}
+  - {fileID: 2105263953030045991, guid: 60ef9e4a6284a4123ac94aa0f5424e3a, type: 3}
+  - {fileID: 2256387868439725483, guid: c65c06f60d2744c7e86e538cdddadf96, type: 3}
   specialEnemy: {fileID: 0}
   player: {fileID: 1762950917}
   spawnRate: 3
@@ -128980,6 +128983,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3206054638780019710, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206054638780019710, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: cooldown
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206054638780019710, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: duration
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206054638780019710, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206054638780019710, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: heightAmplitude
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206054638780019710, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      propertyPath: numberOfSquares
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
       propertyPath: m_Name
       value: Player

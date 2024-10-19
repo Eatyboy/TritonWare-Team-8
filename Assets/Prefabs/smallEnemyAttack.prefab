@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 725110431496853723}
   - component: {fileID: 7327394875465031649}
   - component: {fileID: -8884769092346838024}
-  - component: {fileID: -6783829521421955072}
+  - component: {fileID: 280912312529330629}
   m_Layer: 0
-  m_Name: waterDrop
+  m_Name: smallEnemyAttack
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: 8c260577b2cbd43248937212e2a8eb72, type: 3}
+  m_Icon: {fileID: 2800000, guid: 64853e7d815624e43ab08c0cb4811195, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: -1373762331
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8c260577b2cbd43248937212e2a8eb72, type: 3}
-  m_Color: {r: 0.8235294, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 64853e7d815624e43ab08c0cb4811195, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -126,12 +126,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2a15be69236fb4194cd2d78d8f0ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 20
   lifetime: 3
-  dmg: 2
+  dmg: 1
   isEnemyProjectile: 1
---- !u!58 &-6783829521421955072
-CircleCollider2D:
+--- !u!70 &280912312529330629
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -163,5 +163,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 2, y: 2}
+  m_Direction: 0

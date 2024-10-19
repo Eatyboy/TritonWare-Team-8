@@ -59,11 +59,11 @@ public class Projectile : MonoBehaviour
         else if (collision.CompareTag("Enemy") && !isEnemyProjectile)
         {
             // Player projectile hits the enemy
-            collision.GetComponent<Enemy>().TakeDamage(dmg);
+            collision.GetComponent<IEnemy>().TakeDamage(dmg);
             DamagePopupManager.Instance.NewPopup(dmg, collision.transform.position);
             Destroy(gameObject); // Destroy the projectile after dealing damage
         }
-        else if (collision.CompareTag("Obstacle"))
+        else if (collision.CompareTag("Obstacle") && isEnemyProjectile)
         {
             // Destroy the projectile if it hits an obstacle
             Destroy(gameObject);
