@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 {
     private InputActions ctrl;
     [SerializeField] private Rigidbody2D rb;
+    private Vector3 lastMovementDirection = Vector3.up;
 
     // Core stats
     public float moveSpeed;
@@ -63,16 +64,16 @@ public class Player : MonoBehaviour
         currentHealth = maxHealth;
 
         active1 = GetComponent<Ability1>();
-        active2 = null;
+        active2 = GetComponent<BombAbility>();
         passive1 = GetComponent<OrbitManager>();
-        passive2 = null;
+        passive2 = GetComponent<ChainLightning>(); ;
         passive3 = null;
 
-        active1CDTimer = 0;
-        active2CDTimer = 0;
-        passive1CDTimer = 0;
-        passive2CDTimer = 0;
-        passive3CDTimer = 0;
+        active1CDTimer = 1;
+        active2CDTimer = 1;
+        passive1CDTimer = 1;
+        passive2CDTimer = 1;
+        passive3CDTimer = 1;
         anim = GetComponent<Animator>();
     }
 
@@ -111,6 +112,7 @@ public class Player : MonoBehaviour
         }
 
         passive1CDTimer -= dt;
+        passive2CDTimer -= dt;
 
         if (passive1 != null && passive1CDTimer <= 0)
         {
@@ -121,6 +123,19 @@ public class Player : MonoBehaviour
             //    passive1CDTimer = passive1.GetCooldown();
             //}
         }
+        if (passive2 != null && passive2CDTimer <= 0)
+        {
+            passive2.Activate();
+            passive2CDTimer = passive2.GetCooldown();
+            //if (active2CDTimer < 0)
+            //{
+            //    passive1CDTimer = passive1.GetCooldown();
+            //}
+        }
+
+        Vector2 currentMovement = ctrl.Gameplay.Move.ReadValue<Vector2>();
+        if (currentMovement != Vector2.zero) lastMovementDirection = currentMovement.normalized;
+
 
     }
 
@@ -235,5 +250,16 @@ public class Player : MonoBehaviour
     private void Die()
     {
         // TODO
+    }
+
+    public Vector3 GetMovementDirection()
+    {
+        // Get the movement direction from the input system
+        return ctrl.Gameplay.Move.ReadValue<Vector2>();
+    }
+
+    public Vector3 GetLastMovementDirection()
+    {
+        return lastMovementDirection;
     }
 }
