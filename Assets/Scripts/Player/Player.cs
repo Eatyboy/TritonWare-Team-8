@@ -29,10 +29,18 @@ public class Player : MonoBehaviour
     public float currentHealth;
 
     // Active Abilities
-    private IAbility ability1;
-    private IAbility ability2;
-    private float ability1CooldownTimer;
-    private float ability2CooldownTimer;
+    private IAbility active1;
+    private IAbility active2;
+    private float active1CDTimer;
+    private float active2CDTimer;
+
+    // Passive Abilities
+    private IAbility passive1;
+    private IAbility passive2;
+    private IAbility passive3;
+    private float passive1CDTimer;
+    private float passive2CDTimer;
+    private float passive3CDTimer;
 
     public Animator anim;
 
@@ -54,10 +62,17 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        ability1 = GetComponent<Ability1>();
-        ability2 = null;
-        ability1CooldownTimer = 0;
-        ability2CooldownTimer = 0;
+        active1 = GetComponent<Ability1>();
+        active2 = null;
+        passive1 = GetComponent<OrbitManager>();
+        passive2 = null;
+        passive3 = null;
+
+        active1CDTimer = 0;
+        active2CDTimer = 0;
+        passive1CDTimer = 0;
+        passive2CDTimer = 0;
+        passive3CDTimer = 0;
         anim = GetComponent<Animator>();
     }
 
@@ -81,19 +96,32 @@ public class Player : MonoBehaviour
 
         if (currentHealth > maxHealth) currentHealth = maxHealth;
 
-        if (ability1 != null && ability1CooldownTimer > 0) {
-            ability1CooldownTimer -= dt;
-            if (ability1CooldownTimer < 0) {
-                ability1CooldownTimer = 0;
+        if (active1 != null && active1CDTimer > 0) {
+            active1CDTimer -= dt;
+            if (active1CDTimer < 0) {
+                active1CDTimer = 0;
             }
         }
 
-        if (ability2 != null && ability2CooldownTimer > 0) {
-            ability2CooldownTimer -= dt;
-            if (ability2CooldownTimer < 0) {
-                ability2CooldownTimer = 0;
+        if (active2 != null && active2CDTimer > 0) {
+            active2CDTimer -= dt;
+            if (active2CDTimer < 0) {
+                active2CDTimer = 0;
             }
         }
+
+        passive1CDTimer -= dt;
+
+        if (passive1 != null && passive1CDTimer <= 0)
+        {
+            passive1.Activate();
+            passive1CDTimer = passive1.GetCooldown();
+            //if (active2CDTimer < 0)
+            //{
+            //    passive1CDTimer = passive1.GetCooldown();
+            //}
+        }
+
     }
 
     private void FixedUpdate() {
@@ -104,19 +132,19 @@ public class Player : MonoBehaviour
     }
 
     private void Ability1(InputAction.CallbackContext ctx) {
-        if (ability1 == null) return;
-        if (ability1CooldownTimer > 0) return;
+        if (active1 == null) return;
+        if (active1CDTimer > 0) return;
 
-        ability1.Activate();
-        ability1CooldownTimer = ability1.GetCooldown();
+        active1.Activate();
+        active1CDTimer = active1.GetCooldown();
     }
 
     private void Ability2(InputAction.CallbackContext ctx) {
-        if (ability2 == null) return;
-        if (ability2CooldownTimer > 0) return;
+        if (active2 == null) return;
+        if (active2CDTimer > 0) return;
 
-        ability2.Activate();
-        ability2CooldownTimer = ability2.GetCooldown();
+        active2.Activate();
+        active2CDTimer = active2.GetCooldown();
     }
 
     [SerializeField] private int currentXP = 0;
@@ -193,6 +221,15 @@ public class Player : MonoBehaviour
 
 
         isInvulnerable = false;
+    }
+
+    private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(collision.gameObject.GetComponent<IEnemy>().getDMG());
+        }
     }
 
     private void Die()

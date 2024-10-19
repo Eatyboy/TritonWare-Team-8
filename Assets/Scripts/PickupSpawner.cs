@@ -8,7 +8,7 @@ public class PickupSpawner : MonoBehaviour
     public Transform player;       // Player reference
     public float spawnRate = 1f;   // Time interval between spawns
     private float nextSpawnTime = 0f;
-    public float spawnChance = 0.1f;  // 10% base spawn chance
+    public float spawnChance = 0.2f;  // 10% base spawn chance
     private Player playerScript;
 
     // Start is called before the first frame update
