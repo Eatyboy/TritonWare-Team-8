@@ -141,6 +141,7 @@ MonoBehaviour:
   cooldownReduction: 0
   luck: 0
   currentHealth: 0
+  damageRecencyDuration: 3
   anim: {fileID: 8098524294551723590}
   invulnerabilityDuration: 1.5
   currentXP: 0
