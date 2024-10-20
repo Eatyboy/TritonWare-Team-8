@@ -63,9 +63,9 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        active1 = GetComponent<ReflectingShieldAbility>();
+        active1 = GetComponent<TeleportStrike>();
         active2 = null;
-        passive1 = null;
+        passive1 = GetComponent<MinionAbility>();
         passive2 = null;
         passive3 = null;
 
