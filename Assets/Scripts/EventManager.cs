@@ -2,10 +2,16 @@ using UnityEngine.Events;
 
 public static class EventManager
 {
+    public static bool isGamePaused;
+    public static bool isPlayerDied;
+
     public static class Events
     {
         public static UnityEvent PlayerLevelUp = new();
         public static UnityEvent ChoosePerk = new();
+        public static UnityEvent PauseGame = new();
+        public static UnityEvent ResumeGame = new();
+        public static UnityEvent PlayerDie = new();
         public static UnityEvent<float> EnemyDie = new();
     }
 
