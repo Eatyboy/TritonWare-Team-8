@@ -63,10 +63,10 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        active1 = GetComponent<Ability1>();
-        active2 = GetComponent<BombAbility>();
-        passive1 = GetComponent<OrbitManager>();
-        passive2 = GetComponent<ChainLightning>(); ;
+        active1 = GetComponent<ReflectingShieldAbility>();
+        active2 = null;
+        passive1 = null;
+        passive2 = null;
         passive3 = null;
 
         active1CDTimer = 1;
