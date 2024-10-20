@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupSpawner : MonoBehaviour
 {
-    public GameObject[] items;     // Items to spawn
+    public GameObject[] items;     // Items to spawn (Health, Strength, DmgBoost, Speedup, etc)
     public Transform player;       // Player reference
     public float spawnRate = 1f;   // Time interval between spawns
     private float nextSpawnTime = 0f;
@@ -21,6 +21,7 @@ public class PickupSpawner : MonoBehaviour
         {
             Instantiate(item, spawnPosition, Quaternion.identity);
         }
+        // InvokeRepeating("TrySpawnPickup", spawnRate, spawnRate);
     }
 
     // Update is called once per frame
@@ -61,4 +62,17 @@ public class PickupSpawner : MonoBehaviour
         Vector2 spawnPosition = (Random.insideUnitCircle.normalized * 15f) + (Vector2)player.position;
         return spawnPosition;
     }
+    /*
+     void TrySpawnPickup()
+    {
+        if (Random.value <= spawnChance)
+        {
+            // Pick a random pickup from the list
+            GameObject pickupToSpawn = Items[Random.Range(0, Items.Length)];
+            // Choose a random position around the player to spawn the pickup
+            Vector2 spawnPosition = (Random.insideUnitCircle * 5f) + (Vector2)player.position;
+            Instantiate(pickupToSpawn, spawnPosition, Quaternion.identity);
+        }
+    }
+    */
 }
