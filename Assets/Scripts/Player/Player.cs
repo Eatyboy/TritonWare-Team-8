@@ -63,9 +63,9 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        active1 = GetComponent<TeleportStrike>();
+        active1 = null;
         active2 = null;
-        passive1 = GetComponent<MinionAbility>();
+        passive1 = null;
         passive2 = null;
         passive3 = null;
 
