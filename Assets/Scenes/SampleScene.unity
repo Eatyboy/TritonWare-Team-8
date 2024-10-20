@@ -2103,6 +2103,36 @@ MonoBehaviour:
   chainRange: 5
   cooldown: 3
   damage: 2
+--- !u!114 &1762950936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512542614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d9554ac55bb46fb917d045f460ff85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeedMultiplier: 2
+  dashDuration: 0.3
+  cooldown: 5
+--- !u!114 &1762950937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512542614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f91724688e6c423d88c3b49972a7aee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 1968499201839303752, guid: 511dfb9281a1445a6a7ae5cd4d9fbc76, type: 3}
+  shieldDuration: 5
+  cooldown: 5
 --- !u!1 &1898134472
 GameObject:
   m_ObjectHideFlags: 0
@@ -129110,6 +129140,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1762950927}
+    - targetCorrespondingSourceObject: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1762950936}
+    - targetCorrespondingSourceObject: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1762950937}
   m_SourcePrefab: {fileID: 100100000, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
