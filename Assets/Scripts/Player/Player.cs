@@ -36,12 +36,14 @@ public class Player : MonoBehaviour
     private float active2CDTimer;
 
     // Passive Abilities
-    private IAbility passive1;
-    private IAbility passive2;
-    private IAbility passive3;
-    private float passive1CDTimer;
-    private float passive2CDTimer;
-    private float passive3CDTimer;
+    public IAbility BombAbility = null;
+    public IAbility InternalBurst = null;
+    public IAbility LightningAbility = null;
+    public IAbility OrbitManager = null;
+    private float BombAbilityCDTimer;
+    private float InternalBurstCDTimer;
+    private float LightningAbilityCDTimer;
+    private float OrbitManagerCDTimer;
 
     public Animator anim;
 
@@ -71,9 +73,10 @@ public class Player : MonoBehaviour
 
         active1CDTimer = 1;
         active2CDTimer = 1;
-        passive1CDTimer = 1;
-        passive2CDTimer = 1;
-        passive3CDTimer = 1;
+        BombAbilityCDTimer = 1;
+        InternalBurstCDTimer = 1;
+        LightningAbilityCDTimer = 1;
+        OrbitManagerCDTimer = 1;
         anim = GetComponent<Animator>();
     }
 
@@ -111,26 +114,38 @@ public class Player : MonoBehaviour
             }
         }
 
-        passive1CDTimer -= dt;
-        passive2CDTimer -= dt;
+        BombAbilityCDTimer -= dt;
+        InternalBurstCDTimer -= dt;
+        LightningAbilityCDTimer -= dt;
+        OrbitManagerCDTimer -= dt;
 
-        if (passive1 != null && passive1CDTimer <= 0)
+        if (BombAbility != null && BombAbilityCDTimer <= 0)
         {
-            passive1.Activate();
-            passive1CDTimer = passive1.GetCooldown();
+            BombAbility.Activate();
+            BombAbilityCDTimer = BombAbility.GetCooldown();
             //if (active2CDTimer < 0)
             //{
             //    passive1CDTimer = passive1.GetCooldown();
             //}
         }
-        if (passive2 != null && passive2CDTimer <= 0)
+        if (InternalBurst != null && InternalBurstCDTimer <= 0)
         {
-            passive2.Activate();
-            passive2CDTimer = passive2.GetCooldown();
+            InternalBurst.Activate();
+            InternalBurstCDTimer = InternalBurst.GetCooldown();
             //if (active2CDTimer < 0)
             //{
             //    passive1CDTimer = passive1.GetCooldown();
             //}
+        }
+        if (LightningAbility != null && LightningAbilityCDTimer <= 0)
+        {
+            LightningAbility.Activate();
+            LightningAbilityCDTimer = LightningAbility.GetCooldown();
+        }
+        if (OrbitManager != null && OrbitManagerCDTimer <= 0)
+        {
+            OrbitManager.Activate();
+            OrbitManagerCDTimer = OrbitManager.GetCooldown();
         }
 
         Vector2 currentMovement = ctrl.Gameplay.Move.ReadValue<Vector2>();

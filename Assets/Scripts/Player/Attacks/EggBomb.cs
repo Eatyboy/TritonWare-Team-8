@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombProjectile : MonoBehaviour
+public class EggBomb : MonoBehaviour
 {
     public GameObject clusterProjectilePrefab; // Prefab of the smaller projectiles
     public int clusterCount;              // Number of smaller projectiles

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6232165d8f02437f905751ea01e1187, type: 3}
   m_Name: HealthPerk
   m_EditorClassIdentifier: 
-  perkName: HealthPerk
+  perkType: 2
+  perkName: Health Up
   sprite: {fileID: 961009804, guid: db364ff7f03d1470086a0f11e0c02479, type: 3}
   healthToAdd: 10
