@@ -28,11 +28,13 @@ public class PerkButton : MonoBehaviour
     private void ApplyPerk()
     {
         mPerk.Apply(mPlayer);
+        mPerk.picked = true;
         EventManager.InvokeEvent(EventManager.Events.ChoosePerk);
 	}
 
     private void UpdatePerk()
     {
+        Debug.Log("Update perk");
         mPerk = perkProvider.GetComponent<PerkProvider>().GetRandomPerk();
         gameObject.GetComponentInChildren<TMP_Text>().text = mPerk.perkName;
         mPerkImage.sprite = mPerk.sprite;

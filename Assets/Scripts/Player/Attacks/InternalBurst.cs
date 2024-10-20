@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability1 : MonoBehaviour, IAbility
+public class InternalBurst : MonoBehaviour, IAbility
 {
     public GameObject smallProjectilePrefab;  // Prefab of the smaller projectile
     //public Transform firePoint;               // The point from where the projectile is fired

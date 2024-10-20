@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChainLightning : MonoBehaviour, IAbility
+public class LightningAbility : MonoBehaviour, IAbility
 {
     public GameObject lightningPrefab;  // Prefab of the lightning projectile
     public int maxChains = 3;           // Maximum number of enemies it can chain to

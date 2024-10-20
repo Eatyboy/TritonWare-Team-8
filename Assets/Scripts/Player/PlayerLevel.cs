@@ -31,7 +31,6 @@ public class PlayerLevel : MonoBehaviour
 
         UpdateRequriedExp();
         EventManager.RegisterToEvent(EventManager.Events.PlayerLevelUp, OnLevelUp); // For test, whoever want to be notified when level up can register this Event
-        EventManager.RegisterToEvent(EventManager.Events.EnemyDie, AddExp); // Invoke when enemy die
     }
 
     private void Update()

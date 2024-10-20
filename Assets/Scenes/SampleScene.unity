@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 116948388}
   - component: {fileID: 116948387}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,8 +530,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0f5a48e5a414789a9b5b972d703b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availablePerks:
+  availablePerksList:
+  - {fileID: 11400000, guid: 6deb134e2ad9b4efd839f7622e3b970c, type: 2}
   - {fileID: 11400000, guid: 571471ef33a1244b08e4a87fcf185ce4, type: 2}
+  - {fileID: 11400000, guid: cd774ef6844914f27a655ff3aa09ec12, type: 2}
+  - {fileID: 11400000, guid: 659b04dd5da324ffaa1745f97a034fa7, type: 2}
+  - {fileID: 11400000, guid: ae381400c59a44a23ad46061f6e8044a, type: 2}
   - {fileID: 11400000, guid: 5c44147ef475a4203b03b827a0a5da7a, type: 2}
   - {fileID: 11400000, guid: 12735b7af4eac4e968b7e4a5a9092de1, type: 2}
 --- !u!4 &139686765
@@ -1327,7 +1331,7 @@ GameObject:
   - component: {fileID: 1065797530}
   - component: {fileID: 1065797529}
   m_Layer: 5
-  m_Name: Damage Popup Manager
+  m_Name: Perk1Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

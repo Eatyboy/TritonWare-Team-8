@@ -4,9 +4,9 @@ public static class EventManager
 {
     public static class Events
     {
-        public static UnityEvent PlayerLevelUp = new UnityEvent();
-        public static UnityEvent ChoosePerk = new UnityEvent();
-        public static UnityEvent<float> EnemyDie = new UnityEvent<float>();
+        public static UnityEvent PlayerLevelUp = new();
+        public static UnityEvent ChoosePerk = new();
+        public static UnityEvent<float> EnemyDie = new();
     }
 
     static public void InvokeEvent(UnityEvent anUnityEvent)
