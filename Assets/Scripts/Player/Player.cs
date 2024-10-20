@@ -67,9 +67,6 @@ public class Player : MonoBehaviour
 
         active1 = GetComponent<ReflectingShieldAbility>();
         active2 = null;
-        passive1 = null;
-        passive2 = null;
-        passive3 = null;
 
         active1CDTimer = 1;
         active2CDTimer = 1;
