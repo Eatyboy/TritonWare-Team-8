@@ -144,7 +144,7 @@ MonoBehaviour:
   tookDamageRecently: 0
   damageRecencyDuration: 3
   healthBar: {fileID: 0}
-  maxPassiveSlots: 3
+  maxPassiveSlots: 5
   anim: {fileID: 8098524294551723590}
   invulnerabilityDuration: 1.5
   currentXP: 0
