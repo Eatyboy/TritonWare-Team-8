@@ -23,8 +23,18 @@ public class CloudEnemy : MonoBehaviour
     private float initialY; // Initial Y position of the cloud
     private Transform player; // Reference to the player's transform
 
+    public Sprite sprite1;
+    public Sprite sprite2;
+
+    private float spriteSwitchInterval = 0.5f; // Time between switching sprites
+    private bool isUsingSprite1 = true; // Tracks which sprite is currently active
+    protected SpriteRenderer spriteRenderer;
+
+    private float nextSpriteSwitchTime = 0f; // Tracks when to switch to the next sprite
+
     private void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         initialY = transform.position.y + 30; // Store the initial Y position
 
@@ -36,6 +46,8 @@ public class CloudEnemy : MonoBehaviour
     {
         Hover();
         MoveHorizontally();
+        AlternateSprites();
+
     }
 
     private void Hover()
@@ -105,6 +117,28 @@ public class CloudEnemy : MonoBehaviour
             Vector3 offset = new Vector3(-1f, -1f, 0).normalized; // Down-left
             GameObject beam = Instantiate(beamPrefab, transform.position + offset, Quaternion.Euler(0, 0, 270)); // Rotate 270 degrees
             beam.GetComponent<Beam>().Fire(offset, diagonalStreakLength, beamDuration); // Fire direction
+        }
+    }
+
+    protected void AlternateSprites()
+    {
+        if (Time.time >= nextSpriteSwitchTime)
+        {
+            // Toggle between sprite1 and sprite2
+            if (isUsingSprite1)
+            {
+                spriteRenderer.sprite = sprite2;
+            }
+            else
+            {
+                spriteRenderer.sprite = sprite1;
+            }
+
+            // Toggle the state
+            isUsingSprite1 = !isUsingSprite1;
+
+            // Set the next time to switch sprites
+            nextSpriteSwitchTime = Time.time + spriteSwitchInterval;
         }
     }
 

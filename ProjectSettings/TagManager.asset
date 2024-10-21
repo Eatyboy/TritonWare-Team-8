@@ -8,6 +8,8 @@ TagManager:
   - Beam
   - Obstacle
   - HealthPickup
+  - Undefined
+  - Shield
   layers:
   - Default
   - TransparentFX
