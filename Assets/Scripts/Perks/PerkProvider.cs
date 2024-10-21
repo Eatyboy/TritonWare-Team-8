@@ -11,7 +11,7 @@ public enum PerkType
     InternalBurst,
     Lightning,
     Orbit,
-    Monion
+    Minion
 }
 
 public class PerkProvider : MonoBehaviour
@@ -35,6 +35,7 @@ public class PerkProvider : MonoBehaviour
 		    if (aPerk.perkType >= PerkType.EggBomb && aPerk.picked)
             {
                 availablePerksList.Remove(aPerk);
+                break;
             }
         }
 
