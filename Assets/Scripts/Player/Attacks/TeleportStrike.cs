@@ -19,7 +19,7 @@ public class TeleportStrike : MonoBehaviour, IAbility
         player = GetComponent<Player>();
 
         // Instantiate the teleport shadow once, and hide it initially
-        if (teleportShadowPrefab != null)
+        if (teleportShadowPrefab != null && GetComponent<PlayerLevel>().CurrentLevel < 5)
         {
             activeTeleportShadow = Instantiate(teleportShadowPrefab, transform.position, Quaternion.identity);
             activeTeleportShadow.SetActive(true);
