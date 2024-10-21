@@ -141,7 +141,10 @@ MonoBehaviour:
   cooldownReduction: 0
   luck: 0
   currentHealth: 0
+  tookDamageRecently: 0
   damageRecencyDuration: 3
+  healthBar: {fileID: 0}
+  maxPassiveSlots: 3
   anim: {fileID: 8098524294551723590}
   invulnerabilityDuration: 1.5
   currentXP: 0
@@ -176,6 +179,16 @@ MonoBehaviour:
   mCurrentLevel: 0
   mCurrentExp: 0
   mRequiredExp: 0
+  mExps:
+  - 100
+  - 200
+  - 300
+  - 400
+  - 500
+  - 600
+  - 700
+  - 800
+  - 900
   levelUpAnim: {fileID: 0}
 --- !u!114 &3206054638780019710
 MonoBehaviour:

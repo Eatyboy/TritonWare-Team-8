@@ -5,6 +5,6 @@ public class BombAbilityPerk : IPerk
 {
     public override void Apply(Player aPlayer)
     {
-        aPlayer.BombAbility = aPlayer.GetComponent<BombAbility>();
+        aPlayer.AddPassive(aPlayer.GetComponent<BombAbility>());
 	}
 }

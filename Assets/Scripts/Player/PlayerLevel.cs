@@ -13,7 +13,7 @@ public class PlayerLevel : MonoBehaviour
 
     private int mMaxLevel;
     private Queue<float> mLevelExpQueue= new Queue<float>();
-    [SerializeField] private List<float> mExps = new(){ 100, 200, 300, 400, 500, 600, 700, 800, 900 };
+    public List<float> mExps = new(){ 100, 200, 300, 400, 500, 600, 700, 800, 900 };
 
     [SerializeField] private Animation levelUpAnim;
 

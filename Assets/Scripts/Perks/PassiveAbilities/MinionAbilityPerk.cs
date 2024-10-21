@@ -5,6 +5,6 @@ public class MinionAbilityPerk : IPerk
 {
     public override void Apply(Player aPlayer)
     {
-        aPlayer.MinionAbility = aPlayer.GetComponent<MinionAbility>();
+        aPlayer.AddPassive(aPlayer.GetComponent<MinionAbility>());
 	}
 }

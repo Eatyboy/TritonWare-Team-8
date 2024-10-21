@@ -17,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
         if (fireTimer >= fireInterval)
         {
             FireProjectile(GameManager.Instance.GetDirectionToMouse(transform));
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_SHOOT);
 
             fireTimer = 0f;  // Reset the timer
         }

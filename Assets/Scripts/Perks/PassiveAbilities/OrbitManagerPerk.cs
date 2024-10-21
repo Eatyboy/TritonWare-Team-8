@@ -5,6 +5,6 @@ public class OrbitManagerPerk : IPerk
 {
     public override void Apply(Player aPlayer)
     {
-        aPlayer.OrbitManager = aPlayer.GetComponent<OrbitManager>();
+        aPlayer.AddPassive(aPlayer.GetComponent<OrbitManager>());
 	}
 }

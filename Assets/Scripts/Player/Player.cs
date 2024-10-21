@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -41,16 +42,10 @@ public class Player : MonoBehaviour
     private float active2CDTimer;
 
     // Passive Abilities
-    public IAbility BombAbility = null;
-    public IAbility InternalBurst = null;
-    public IAbility LightningAbility = null;
-    public IAbility OrbitManager = null;
-    public IAbility MinionAbility = null;
-    private float BombAbilityCDTimer;
-    private float InternalBurstCDTimer;
-    private float LightningAbilityCDTimer;
-    private float OrbitManagerCDTimer;
-    private float MinionAbilityCDTimer;
+    public int maxPassiveSlots;
+    public IAbility[] passives;
+    private float[] passiveCDTimers;
+    private int passiveCount;
 
     public Animator anim;
 
@@ -77,11 +72,11 @@ public class Player : MonoBehaviour
 
         active1CDTimer = 1;
         active2CDTimer = 1;
-        BombAbilityCDTimer = 1;
-        InternalBurstCDTimer = 1;
-        LightningAbilityCDTimer = 1;
-        OrbitManagerCDTimer = 1;
-        MinionAbilityCDTimer = 1;
+
+        passives = new IAbility[maxPassiveSlots];
+        passiveCDTimers = new float[maxPassiveSlots];
+        passiveCount = 0;
+
         anim = GetComponent<Animator>();
     }
 
@@ -125,46 +120,15 @@ public class Player : MonoBehaviour
             }
         }
 
-        BombAbilityCDTimer -= dt;
-        InternalBurstCDTimer -= dt;
-        LightningAbilityCDTimer -= dt;
-        OrbitManagerCDTimer -= dt;
-
-        if (BombAbility != null && BombAbilityCDTimer <= 0)
+        for (int i = 0; i < passiveCount; ++i)
         {
-            BombAbility.Activate();
-            BombAbilityCDTimer = BombAbility.GetCooldown();
-            //if (active2CDTimer < 0)
-            //{
-            //    passive1CDTimer = passive1.GetCooldown();
-            //}
-        }
-        if (InternalBurst != null && InternalBurstCDTimer <= 0)
-        {
-            passive1.Activate();
-            passive1CDTimer = passive1.GetCooldown();
-            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_SHOOT);
-            InternalBurst.Activate();
-            InternalBurstCDTimer = InternalBurst.GetCooldown();
-            //if (active2CDTimer < 0)
-            //{
-            //    passive1CDTimer = passive1.GetCooldown();
-            //}
-        }
-        if (LightningAbility != null && LightningAbilityCDTimer <= 0)
-        {
-            LightningAbility.Activate();
-            LightningAbilityCDTimer = LightningAbility.GetCooldown();
-        }
-        if (OrbitManager != null && OrbitManagerCDTimer <= 0)
-        {
-            OrbitManager.Activate();
-            OrbitManagerCDTimer = OrbitManager.GetCooldown();
-        }
-        if (MinionAbility != null && MinionAbilityCDTimer <= 0)
-        {
-            MinionAbility.Activate();
-            MinionAbilityCDTimer = MinionAbility.GetCooldown();
+            passiveCDTimers[i] -= dt;
+            if (passiveCDTimers[i] <= 0)
+            {
+                passives[i].Activate();
+                passiveCDTimers[i] = passives[i].GetCooldown();
+                SFXManager.Instance.PlayRandomSound(SFXManager.SFX.ENEMY_SHOOT);
+            }
         }
 
         Vector2 currentMovement = ctrl.Gameplay.Move.ReadValue<Vector2>();
@@ -319,5 +283,17 @@ public class Player : MonoBehaviour
     public Vector3 GetLastMovementDirection()
     {
         return lastMovementDirection;
+    }
+
+    public void AddPassive(IAbility passive)
+    {
+        if (passiveCount == maxPassiveSlots)
+        {
+            Debug.LogError("Attempted to exceed max passive slots");
+            return;
+        }
+
+        passives[passiveCount] = passive;
+        passiveCount++;
     }
 }
