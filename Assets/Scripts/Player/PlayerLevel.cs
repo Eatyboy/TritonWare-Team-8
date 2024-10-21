@@ -17,8 +17,8 @@ public class PlayerLevel : MonoBehaviour
 
     [SerializeField] private Animation levelUpAnim;
 
-    private bool isActive1Unlock;
-    private bool isActive2Unlock;
+    public bool isActive1Unlock;
+    public bool isActive2Unlock;
 
     private void Awake()
     {
