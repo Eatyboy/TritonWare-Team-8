@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,6 +28,11 @@ public class Player : MonoBehaviour
     public float luck;
 
     public float currentHealth;
+
+    public bool tookDamageRecently = false;
+    [SerializeField] private float damageRecencyDuration;
+    private float damageRecencyTimer = 0;
+    [SerializeField] private HealthBar healthBar;
 
     // Active Abilities
     public IAbility active1;
@@ -98,6 +104,12 @@ public class Player : MonoBehaviour
         currentHealth = (int)Mathf.Min(currentHealth + healthRegen * dt, maxHealth);
 
         if (currentHealth > maxHealth) currentHealth = maxHealth;
+
+        damageRecencyTimer = Mathf.Max(damageRecencyTimer - dt, 0);
+        if (damageRecencyTimer <= 0) {
+            tookDamageRecently = false; 
+            healthBar.gameObject.SetActive(false);
+        }
 
         if (active1 != null && active1CDTimer > 0) {
             active1CDTimer -= dt;
@@ -247,6 +259,10 @@ public class Player : MonoBehaviour
         {
             currentHealth -= damageAmount;
             SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_HIT);
+
+            tookDamageRecently = true;
+            damageRecencyTimer = damageRecencyDuration;
+            healthBar.gameObject.SetActive(true);
 
             if (currentHealth <= 0)
             {
