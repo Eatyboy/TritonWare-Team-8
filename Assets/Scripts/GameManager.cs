@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     private InputActions ctrl;
 
+    public AudioClip[] enemyHitSounds;
+
     private void Awake() {
         ctrl = new InputActions();
 

@@ -116,6 +116,7 @@ public class Player : MonoBehaviour
         {
             passive1.Activate();
             passive1CDTimer = passive1.GetCooldown();
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_SHOOT);
             //if (active2CDTimer < 0)
             //{
             //    passive1CDTimer = passive1.GetCooldown();
@@ -190,6 +191,7 @@ public class Player : MonoBehaviour
         if (!isInvulnerable)
         {
             currentHealth -= damageAmount;
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_HIT);
 
             if (currentHealth <= 0)
             {

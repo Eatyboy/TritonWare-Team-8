@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform player;        // Reference to the player
     public float nextAttackTime;
-    public XPDrop xpPrefab; 
+    public XPDrop xpPrefab;
 
     private Rigidbody2D rb;         // Rigidbody for movement
 
