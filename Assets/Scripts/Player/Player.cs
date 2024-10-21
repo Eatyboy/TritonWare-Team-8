@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        active1 = GetComponent<ReflectingShieldAbility>();
+        active1 = null;
         active2 = null;
 
         active1CDTimer = 1;
