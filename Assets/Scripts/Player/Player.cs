@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public static class PlayerAnimations
 { 
     public static string SPEEDUP_ANIM = "SpeedUp";
@@ -148,7 +147,7 @@ public class Player : MonoBehaviour
         Vector2 currentMovement = ctrl.Gameplay.Move.ReadValue<Vector2>();
         if (currentMovement != Vector2.zero) lastMovementDirection = currentMovement.normalized;
 
-
+        HandlePauseInput();
     }
 
     private void FixedUpdate() {
@@ -157,6 +156,21 @@ public class Player : MonoBehaviour
 
         rb.MovePosition(rb.position + moveSpeed * fdt * movement);
     }
+
+    private void HandlePauseInput()
+    { 
+	    if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!EventManager.isGamePaused)
+            {
+                EventManager.InvokeEvent(EventManager.Events.PauseGame);
+            }
+            else
+            { 
+                EventManager.InvokeEvent(EventManager.Events.ResumeGame);
+			}
+        }
+	}
 
     private void Ability1(InputAction.CallbackContext ctx) {
         if (active1 == null) return;
@@ -261,7 +275,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        // TODO
+        EventManager.InvokeEvent(EventManager.Events.PlayerDie);
     }
 
     public Vector3 GetMovementDirection()
