@@ -3183,8 +3183,24 @@ MonoBehaviour:
   teleportRange: 5
   aoeRadius: 2
   aoeDamage: 50
-  teleportShadowPrefab: {fileID: 0}
+  teleportShadowPrefab: {fileID: 2959314211049557106, guid: d748f772c8df946eebc20e37c48d492a, type: 3}
   cooldown: 3
+--- !u!114 &1762950947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512542614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea78e750e3c03458da1e3f7a38bd8aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minionPrefab: {fileID: 8687492787138644153, guid: 9d6260bf0694d411d96abf7041456872, type: 3}
+  minionCount: 3
+  summonCooldown: 10
+  duration: 10
 --- !u!1 &1793042582
 GameObject:
   m_ObjectHideFlags: 0
@@ -130557,6 +130573,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1762950946}
+    - targetCorrespondingSourceObject: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1762950947}
   m_SourcePrefab: {fileID: 100100000, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
 --- !u!1001 &4078814318681819948
 PrefabInstance:

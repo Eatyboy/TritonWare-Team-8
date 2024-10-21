@@ -29,8 +29,8 @@ public class Player : MonoBehaviour
     public float currentHealth;
 
     // Active Abilities
-    private IAbility active1;
-    private IAbility active2;
+    public IAbility active1;
+    public IAbility active2;
     private float active1CDTimer;
     private float active2CDTimer;
 
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        active1 = GetComponent<TeleportStrike>();
+        active1 = null;
         active2 = null;
 
         active1CDTimer = 1;

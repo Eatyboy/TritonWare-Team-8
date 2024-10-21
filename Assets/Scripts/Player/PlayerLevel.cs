@@ -13,18 +13,21 @@ public class PlayerLevel : MonoBehaviour
 
     private int mMaxLevel;
     private Queue<float> mLevelExpQueue= new Queue<float>();
-    private float[] mExps = { 100, 200, 300, 400, 500, 600, 700, 800, 900 };
+    [SerializeField] private List<float> mExps = new(){ 100, 200, 300, 400, 500, 600, 700, 800, 900 };
 
     [SerializeField] private Animation levelUpAnim;
 
+    private bool isActive1Unlock;
+    private bool isActive2Unlock;
+
     private void Awake()
     {
-        mMaxLevel = mExps.Length;
+        mMaxLevel = mExps.Count;
     }
 
     private void Start()
     {
-        for (int i=0; i<mExps.Length; i++)
+        for (int i=0; i<mExps.Count; i++)
         {
             mLevelExpQueue.Enqueue(mExps[i]);
         }
@@ -41,6 +44,7 @@ public class PlayerLevel : MonoBehaviour
             AddExp(30f);
 		}
         HandleLevelUp();
+        HandleActiveAbility();
     }
 
     public void AddExp(float anAmount)
@@ -75,6 +79,22 @@ public class PlayerLevel : MonoBehaviour
             mRequiredExp = mLevelExpQueue.Dequeue();
         }
     }
+
+    private void HandleActiveAbility()
+    { 
+        if (mCurrentLevel == 2 && !isActive1Unlock)
+        {
+            isActive1Unlock = true;
+            Debug.Log("Unlock Activity 1");
+            GetComponent<Player>().active1 = GetComponent<ReflectingShieldAbility>();
+		} 
+        if (mCurrentLevel == 5 && !isActive2Unlock)
+        { 
+            isActive2Unlock = true;
+            Debug.Log("Unlock Activity 2");
+            GetComponent<Player>().active2 = GetComponent<TeleportStrike>();
+		}
+	}
 
     // For test, other object can have OnLevelUp()
     private void OnLevelUp()
