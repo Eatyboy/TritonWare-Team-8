@@ -556,6 +556,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ae381400c59a44a23ad46061f6e8044a, type: 2}
   - {fileID: 11400000, guid: 5c44147ef475a4203b03b827a0a5da7a, type: 2}
   - {fileID: 11400000, guid: 12735b7af4eac4e968b7e4a5a9092de1, type: 2}
+  - {fileID: 11400000, guid: b3c5fa267ee0748bcb3769ed88265e87, type: 2}
 --- !u!4 &139686765
 Transform:
   m_ObjectHideFlags: 0
@@ -1887,7 +1888,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1793042586}
+      - m_Target: {fileID: 1793042584}
         m_TargetAssemblyTypeName: GameOverUI, Assembly-CSharp
         m_MethodName: GoToMenu
         m_Mode: 1
@@ -2903,7 +2904,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1793042586}
+      - m_Target: {fileID: 1793042584}
         m_TargetAssemblyTypeName: GameOverUI, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -3167,6 +3168,23 @@ MonoBehaviour:
   shieldPrefab: {fileID: 1968499201839303752, guid: 511dfb9281a1445a6a7ae5cd4d9fbc76, type: 3}
   shieldDuration: 5
   cooldown: 5
+--- !u!114 &1762950946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512542614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f1339174cda451dbc0d44c719ed124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportRange: 5
+  aoeRadius: 2
+  aoeDamage: 50
+  teleportShadowPrefab: {fileID: 0}
+  cooldown: 3
 --- !u!1 &1793042582
 GameObject:
   m_ObjectHideFlags: 0
@@ -3177,8 +3195,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1793042583}
   - component: {fileID: 1793042585}
-  - component: {fileID: 1793042584}
   - component: {fileID: 1793042586}
+  - component: {fileID: 1793042584}
   m_Layer: 5
   m_Name: GameOverUI
   m_TagString: Untagged
@@ -3239,14 +3257,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1793042582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f1339174cda451dbc0d44c719ed124, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportRange: 5
-  aoeRadius: 2
-  aoeDamage: 50
-  teleportShadowPrefab: {fileID: 0}
-  cooldown: 3
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.7647059}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1851328839
 GameObject:
   m_ObjectHideFlags: 0
@@ -130523,6 +130554,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1762950937}
+    - targetCorrespondingSourceObject: {fileID: 4598952167552283305, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1762950946}
   m_SourcePrefab: {fileID: 100100000, guid: 670d66c287dd1c94db3f992f812b4bdb, type: 3}
 --- !u!1001 &4078814318681819948
 PrefabInstance:

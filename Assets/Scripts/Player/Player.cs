@@ -39,10 +39,12 @@ public class Player : MonoBehaviour
     public IAbility InternalBurst = null;
     public IAbility LightningAbility = null;
     public IAbility OrbitManager = null;
+    public IAbility MinionAbility = null;
     private float BombAbilityCDTimer;
     private float InternalBurstCDTimer;
     private float LightningAbilityCDTimer;
     private float OrbitManagerCDTimer;
+    private float MinionAbilityCDTimer;
 
     public Animator anim;
 
@@ -64,7 +66,7 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        active1 = null;
+        active1 = GetComponent<TeleportStrike>();
         active2 = null;
 
         active1CDTimer = 1;
@@ -73,6 +75,7 @@ public class Player : MonoBehaviour
         InternalBurstCDTimer = 1;
         LightningAbilityCDTimer = 1;
         OrbitManagerCDTimer = 1;
+        MinionAbilityCDTimer = 1;
         anim = GetComponent<Animator>();
     }
 
@@ -143,11 +146,20 @@ public class Player : MonoBehaviour
             OrbitManager.Activate();
             OrbitManagerCDTimer = OrbitManager.GetCooldown();
         }
+        if (MinionAbility != null && MinionAbilityCDTimer <= 0)
+        {
+            MinionAbility.Activate();
+            MinionAbilityCDTimer = MinionAbility.GetCooldown();
+        }
 
         Vector2 currentMovement = ctrl.Gameplay.Move.ReadValue<Vector2>();
         if (currentMovement != Vector2.zero) lastMovementDirection = currentMovement.normalized;
 
         HandlePauseInput();
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Die();
+		}
     }
 
     private void FixedUpdate() {

@@ -10,7 +10,8 @@ public enum PerkType
     EggBomb,
     InternalBurst,
     Lightning,
-    Orbit
+    Orbit,
+    Monion
 }
 
 public class PerkProvider : MonoBehaviour
