@@ -61,12 +61,34 @@ public class Projectile : MonoBehaviour
             // Player projectile hits the enemy
             collision.GetComponent<IEnemy>().TakeDamage(dmg);
             DamagePopupManager.Instance.NewPopup(dmg, collision.transform.position);
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.ENEMY_HIT);
             Destroy(gameObject); // Destroy the projectile after dealing damage
         }
         else if (collision.CompareTag("Obstacle") && isEnemyProjectile)
         {
             // Destroy the projectile if it hits an obstacle
             Destroy(gameObject);
+        }else if(collision.CompareTag("Shield") && isEnemyProjectile)
+        {
+            ReflectProjectile(collision);
         }
     }
+
+    private void ReflectProjectile(Collider2D shield)
+    {
+        Debug.Log("before: " + direction);
+        // Calculate the normal vector of the shield (its "up" direction)
+        Vector2 shieldNormal = shield.transform.up;
+        Debug.Log("after: " + direction);
+
+
+        // Reflect the current direction using the shield's normal
+        direction = Vector2.Reflect(direction, shieldNormal).normalized;
+
+        // Rotate the projectile to match the new reflected direction
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Debug.Log(angle);
+        transform.localRotation = Quaternion.Euler(0, 0, angle);
+    }
+
 }

@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public static class PlayerAnimations
 { 
     public static string SPEEDUP_ANIM = "SpeedUp";
@@ -36,18 +35,22 @@ public class Player : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
 
     // Active Abilities
-    private IAbility active1;
-    private IAbility active2;
+    public IAbility active1;
+    public IAbility active2;
     private float active1CDTimer;
     private float active2CDTimer;
 
     // Passive Abilities
-    private IAbility passive1;
-    private IAbility passive2;
-    private IAbility passive3;
-    private float passive1CDTimer;
-    private float passive2CDTimer;
-    private float passive3CDTimer;
+    public IAbility BombAbility = null;
+    public IAbility InternalBurst = null;
+    public IAbility LightningAbility = null;
+    public IAbility OrbitManager = null;
+    public IAbility MinionAbility = null;
+    private float BombAbilityCDTimer;
+    private float InternalBurstCDTimer;
+    private float LightningAbilityCDTimer;
+    private float OrbitManagerCDTimer;
+    private float MinionAbilityCDTimer;
 
     public Animator anim;
 
@@ -69,17 +72,16 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        active1 = GetComponent<Ability1>();
-        active2 = GetComponent<BombAbility>();
-        passive1 = GetComponent<OrbitManager>();
-        passive2 = GetComponent<ChainLightning>(); ;
-        passive3 = null;
+        active1 = null;
+        active2 = null;
 
         active1CDTimer = 1;
         active2CDTimer = 1;
-        passive1CDTimer = 1;
-        passive2CDTimer = 1;
-        passive3CDTimer = 1;
+        BombAbilityCDTimer = 1;
+        InternalBurstCDTimer = 1;
+        LightningAbilityCDTimer = 1;
+        OrbitManagerCDTimer = 1;
+        MinionAbilityCDTimer = 1;
         anim = GetComponent<Animator>();
     }
 
@@ -123,32 +125,56 @@ public class Player : MonoBehaviour
             }
         }
 
-        passive1CDTimer -= dt;
-        passive2CDTimer -= dt;
+        BombAbilityCDTimer -= dt;
+        InternalBurstCDTimer -= dt;
+        LightningAbilityCDTimer -= dt;
+        OrbitManagerCDTimer -= dt;
 
-        if (passive1 != null && passive1CDTimer <= 0)
+        if (BombAbility != null && BombAbilityCDTimer <= 0)
         {
-            passive1.Activate();
-            passive1CDTimer = passive1.GetCooldown();
+            BombAbility.Activate();
+            BombAbilityCDTimer = BombAbility.GetCooldown();
             //if (active2CDTimer < 0)
             //{
             //    passive1CDTimer = passive1.GetCooldown();
             //}
         }
-        if (passive2 != null && passive2CDTimer <= 0)
+        if (InternalBurst != null && InternalBurstCDTimer <= 0)
         {
-            passive2.Activate();
-            passive2CDTimer = passive2.GetCooldown();
+            passive1.Activate();
+            passive1CDTimer = passive1.GetCooldown();
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_SHOOT);
+            InternalBurst.Activate();
+            InternalBurstCDTimer = InternalBurst.GetCooldown();
             //if (active2CDTimer < 0)
             //{
             //    passive1CDTimer = passive1.GetCooldown();
             //}
+        }
+        if (LightningAbility != null && LightningAbilityCDTimer <= 0)
+        {
+            LightningAbility.Activate();
+            LightningAbilityCDTimer = LightningAbility.GetCooldown();
+        }
+        if (OrbitManager != null && OrbitManagerCDTimer <= 0)
+        {
+            OrbitManager.Activate();
+            OrbitManagerCDTimer = OrbitManager.GetCooldown();
+        }
+        if (MinionAbility != null && MinionAbilityCDTimer <= 0)
+        {
+            MinionAbility.Activate();
+            MinionAbilityCDTimer = MinionAbility.GetCooldown();
         }
 
         Vector2 currentMovement = ctrl.Gameplay.Move.ReadValue<Vector2>();
         if (currentMovement != Vector2.zero) lastMovementDirection = currentMovement.normalized;
 
-
+        HandlePauseInput();
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Die();
+		}
     }
 
     private void FixedUpdate() {
@@ -157,6 +183,21 @@ public class Player : MonoBehaviour
 
         rb.MovePosition(rb.position + moveSpeed * fdt * movement);
     }
+
+    private void HandlePauseInput()
+    { 
+	    if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!EventManager.isGamePaused)
+            {
+                EventManager.InvokeEvent(EventManager.Events.PauseGame);
+            }
+            else
+            { 
+                EventManager.InvokeEvent(EventManager.Events.ResumeGame);
+			}
+        }
+	}
 
     private void Ability1(InputAction.CallbackContext ctx) {
         if (active1 == null) return;
@@ -217,6 +258,7 @@ public class Player : MonoBehaviour
         if (!isInvulnerable)
         {
             currentHealth -= damageAmount;
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_HIT);
 
             tookDamageRecently = true;
             damageRecencyTimer = damageRecencyDuration;
@@ -265,7 +307,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        // TODO
+        EventManager.InvokeEvent(EventManager.Events.PlayerDie);
     }
 
     public Vector3 GetMovementDirection()

@@ -11,6 +11,7 @@ public class XPDrop : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerLevel>().AddExp(xpValue);
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.XP);
             Destroy(gameObject);
         }
     }
