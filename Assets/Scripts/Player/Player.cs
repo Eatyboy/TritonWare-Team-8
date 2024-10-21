@@ -129,6 +129,9 @@ public class Player : MonoBehaviour
         }
         if (InternalBurst != null && InternalBurstCDTimer <= 0)
         {
+            passive1.Activate();
+            passive1CDTimer = passive1.GetCooldown();
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_SHOOT);
             InternalBurst.Activate();
             InternalBurstCDTimer = InternalBurst.GetCooldown();
             //if (active2CDTimer < 0)
@@ -243,6 +246,7 @@ public class Player : MonoBehaviour
         if (!isInvulnerable)
         {
             currentHealth -= damageAmount;
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.PLAYER_HIT);
 
             if (currentHealth <= 0)
             {

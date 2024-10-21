@@ -61,6 +61,7 @@ public class Projectile : MonoBehaviour
             // Player projectile hits the enemy
             collision.GetComponent<IEnemy>().TakeDamage(dmg);
             DamagePopupManager.Instance.NewPopup(dmg, collision.transform.position);
+            SFXManager.Instance.PlayRandomSound(SFXManager.SFX.ENEMY_HIT);
             Destroy(gameObject); // Destroy the projectile after dealing damage
         }
         else if (collision.CompareTag("Obstacle") && isEnemyProjectile)
