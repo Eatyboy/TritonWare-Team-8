@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     void Update() {
         float dt = Time.deltaTime;
 
-        currentHealth = (int)Mathf.Min(currentHealth + healthRegen * dt, maxHealth);
+        currentHealth = Mathf.Min(currentHealth + healthRegen * dt, maxHealth);
 
         if (currentHealth > maxHealth) currentHealth = maxHealth;
 
@@ -136,10 +136,12 @@ public class Player : MonoBehaviour
         if (currentMovement != Vector2.zero) lastMovementDirection = currentMovement.normalized;
 
         HandlePauseInput();
+        /*
         if (Input.GetKeyDown(KeyCode.O))
         {
             Die();
 		}
+        */
     }
 
     private void FixedUpdate() {
