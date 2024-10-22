@@ -10,6 +10,7 @@ public static class PlayerAnimations
     public static string SPEEDUP_ANIM = "SpeedUp";
     public static string HEALTHUP_ANIM = "HealthUp";
     public static string DAMAGEUP_ANIM = "DamageUp";
+    public static string REGENUP_ANIM = "RegenUp";
 }
 
 public class Player : MonoBehaviour
@@ -230,7 +231,7 @@ public class Player : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                //Die();
+                Die();
             }
             else
             {
