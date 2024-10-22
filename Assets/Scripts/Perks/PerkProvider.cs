@@ -40,7 +40,7 @@ public class PerkProvider : MonoBehaviour
             }
         }
 
-        int idx = Random.Range(0, availablePerksList.Count-1);
+        int idx = Random.Range(0, availablePerksList.Count);
         // don't want to have same one
         while (pickedPerkIdx.Contains(idx))
         {

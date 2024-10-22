@@ -28,11 +28,13 @@ public class PlayerLevel : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.U))
         {
             // For test
             AddExp(30f);
 		}
+        */
         HandleLevelUp();
         HandleActiveAbility();
     }
