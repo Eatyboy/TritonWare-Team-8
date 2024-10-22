@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  lifetime: 10
-  dmg: 0
+  lifetime: 5
+  dmg: 3
   isEnemyProjectile: 1
 --- !u!58 &8492234363647995228
 CircleCollider2D:

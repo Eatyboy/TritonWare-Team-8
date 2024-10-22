@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9fdeb00d6cdce4aa77369df8909b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  radius: 20
+  dmg: 4
+  radius: 18
   sprite1: {fileID: 21300000, guid: 4c462c3cee13c406ca9afe9dbdf028eb, type: 3}
   sprite2: {fileID: 21300000, guid: 2db6ca570b8d7485686f04a1ebedb327, type: 3}
   isEnemyAttack: 1
@@ -137,4 +137,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 3

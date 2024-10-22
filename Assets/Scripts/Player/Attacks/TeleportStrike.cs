@@ -6,7 +6,7 @@ public class TeleportStrike : MonoBehaviour, IAbility
 {
     public float teleportRange = 5f;
     public float aoeRadius = 2f;
-    public float aoeDamage = 50f;
+    public float aoeDamage = 6f;
     public GameObject teleportShadowPrefab;  // Prefab of the shadow/indicator
     private GameObject activeTeleportShadow; // Reference to the active shadow object
     private Player player;
@@ -48,7 +48,8 @@ public class TeleportStrike : MonoBehaviour, IAbility
             IEnemy enemy = hitCollider.GetComponent<IEnemy>();
             if (enemy != null)
             {
-                enemy.TakeDamage((int)aoeDamage);
+                hitCollider.GetComponent<IEnemy>().TakeDamage((int)player.getDMG(aoeDamage));
+                DamagePopupManager.Instance.NewPopup((int)player.getDMG(aoeDamage), hitCollider.transform.position);
             }
         }
 
