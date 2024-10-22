@@ -32,6 +32,8 @@ public class SFXManager : MonoBehaviour
         } else {
             Instance = this;
         }
+
+        DontDestroyOnLoad(this);
     }
 
     public void PlayRandomSound(SFX sfx)

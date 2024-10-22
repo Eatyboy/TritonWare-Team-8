@@ -10,29 +10,35 @@ public class SelectionArrow : MonoBehaviour
     [SerializeField] AudioClip changeAudio;
     [SerializeField] AudioClip selectAudio;
 
+    static public bool isControllable;
 
     private void OnEnable()
     {
         currentOption = 0;
+        isControllable = true;
         ChangeOption(0);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            ChangeOption(-1);
-            PlayChangeAudio();
+
+        if (isControllable) 
+		{
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                ChangeOption(-1);
+                PlayChangeAudio();
+            }
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                ChangeOption(1);
+                PlayChangeAudio();
+            }
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
+            {
+                SelectOption();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            ChangeOption(1);
-            PlayChangeAudio();
-		}
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
-        {
-            SelectOption();
-		}
     }
 
     public void ChangeOption(int n)

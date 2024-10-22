@@ -11,6 +11,8 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] Button settingButton;
     [SerializeField] Button exitButton;
 
+    [SerializeField] GameObject SettingUI;
+
     public void StartGame()
     {
         Debug.Log("Start Game");
@@ -21,7 +23,7 @@ public class TitleScreen : MonoBehaviour
 
     public void SettingMenu()
     {
-        Debug.Log("open setting menu");
+        SettingUI.SetActive(true);
     }
 
     public void ExitGame()
