@@ -13,6 +13,8 @@ public static class EventManager
         public static UnityEvent ResumeGame = new();
         public static UnityEvent PlayerDie = new();
         public static UnityEvent EnemyDie = new();
+        public static UnityEvent UnlockActive1 = new();
+        public static UnityEvent UnlockActive2 = new();
     }
 
     static public void InvokeEvent(UnityEvent anUnityEvent)
