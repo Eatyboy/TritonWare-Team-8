@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     void Update() {
         float dt = Time.deltaTime;
 
-        currentHealth = (int)Mathf.Min(currentHealth + healthRegen * dt, maxHealth);
+        currentHealth = Mathf.Min(currentHealth + healthRegen * dt, maxHealth);
 
         if (currentHealth > maxHealth) currentHealth = maxHealth;
 
