@@ -10,6 +10,7 @@ public static class PlayerAnimations
     public static string SPEEDUP_ANIM = "SpeedUp";
     public static string HEALTHUP_ANIM = "HealthUp";
     public static string DAMAGEUP_ANIM = "DamageUp";
+    public static string REGENUP_ANIM = "RegenUp";
 }
 
 public class Player : MonoBehaviour
@@ -38,8 +39,8 @@ public class Player : MonoBehaviour
     // Active Abilities
     public IAbility active1;
     public IAbility active2;
-    private float active1CDTimer;
-    private float active2CDTimer;
+    public float active1CDTimer;
+    public float active2CDTimer;
 
     // Passive Abilities
     public int maxPassiveSlots;
@@ -230,7 +231,7 @@ public class Player : MonoBehaviour
 
             if (currentHealth <= 0)
             {
-                //Die();
+                Die();
             }
             else
             {

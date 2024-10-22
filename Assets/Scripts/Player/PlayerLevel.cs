@@ -11,28 +11,18 @@ public class PlayerLevel : MonoBehaviour
     public float CurrentExp => mCurrentExp;
     public float RequiredExp => mRequiredExp;
 
-    private int mMaxLevel;
-    private Queue<float> mLevelExpQueue= new Queue<float>();
-    public List<float> mExps = new(){ 100, 200, 300, 400, 500, 600, 700, 800, 900 };
+    [SerializeField] private int mMaxLevel;
+    [SerializeField] private float mBaseRequiredExp;
+    [SerializeField] private float mLevelExpScalar;
 
     [SerializeField] private Animation levelUpAnim;
 
-    private bool isActive1Unlock;
-    private bool isActive2Unlock;
-
-    private void Awake()
-    {
-        mMaxLevel = mExps.Count;
-    }
+    public bool isActive1Unlock;
+    public bool isActive2Unlock;
 
     private void Start()
     {
-        for (int i=0; i<mExps.Count; i++)
-        {
-            mLevelExpQueue.Enqueue(mExps[i]);
-        }
-
-        UpdateRequriedExp();
+        mRequiredExp = mBaseRequiredExp;
         EventManager.RegisterToEvent(EventManager.Events.PlayerLevelUp, OnLevelUp); // For test, whoever want to be notified when level up can register this Event
     }
 
@@ -45,6 +35,12 @@ public class PlayerLevel : MonoBehaviour
 		}
         HandleLevelUp();
         HandleActiveAbility();
+    }
+
+    public float GetRequiredExp(int level)
+    {
+        if (level < 0) return 0; // Useful for XP bar
+        return 10 * level * level + 110 * level + mBaseRequiredExp;
     }
 
     public void AddExp(float anAmount)
@@ -60,7 +56,7 @@ public class PlayerLevel : MonoBehaviour
 	    if (mCurrentExp >= mRequiredExp && mCurrentLevel < mMaxLevel)
         {
             LevelUp();
-            UpdateRequriedExp();
+            mRequiredExp = GetRequiredExp(mCurrentLevel);
 		}
 	}
 
@@ -72,26 +68,18 @@ public class PlayerLevel : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void UpdateRequriedExp()
-    {
-        if (mLevelExpQueue.Count > 0)
-        {
-            mRequiredExp = mLevelExpQueue.Dequeue();
-        }
-    }
-
     private void HandleActiveAbility()
     { 
         if (mCurrentLevel == 2 && !isActive1Unlock)
         {
             isActive1Unlock = true;
-            Debug.Log("Unlock Activity 1");
+            EventManager.InvokeEvent(EventManager.Events.UnlockActive1);
             GetComponent<Player>().active1 = GetComponent<ReflectingShieldAbility>();
 		} 
         if (mCurrentLevel == 5 && !isActive2Unlock)
         { 
             isActive2Unlock = true;
-            Debug.Log("Unlock Activity 2");
+            EventManager.InvokeEvent(EventManager.Events.UnlockActive2);
             GetComponent<Player>().active2 = GetComponent<TeleportStrike>();
 		}
 	}

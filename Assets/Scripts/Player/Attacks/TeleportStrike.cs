@@ -11,18 +11,18 @@ public class TeleportStrike : MonoBehaviour, IAbility
     private GameObject activeTeleportShadow; // Reference to the active shadow object
     private Player player;
 
+    bool isTeleportShadowInstantiated;
     public float cooldown = 3f;
-    private float cooldownTimer = 0f;
+    public float cooldownTimer = 0f;
 
     private void Start()
     {
         player = GetComponent<Player>();
 
         // Instantiate the teleport shadow once, and hide it initially
-        if (teleportShadowPrefab != null)
-        {
-            activeTeleportShadow = Instantiate(teleportShadowPrefab, transform.position, Quaternion.identity);
-            activeTeleportShadow.SetActive(true);
+        if (teleportShadowPrefab != null) {
+            // activeTeleportShadow = Instantiate(teleportShadowPrefab, transform.position, Quaternion.identity);
+            // activeTeleportShadow.SetActive(true);
         }
     }
 
@@ -64,6 +64,16 @@ public class TeleportStrike : MonoBehaviour, IAbility
 
     private void Update()
     {
+        if (GetComponent<PlayerLevel>().isActive2Unlock && teleportShadowPrefab != null)
+        {
+            if (!isTeleportShadowInstantiated)
+            {
+                activeTeleportShadow = Instantiate(teleportShadowPrefab, transform.position, Quaternion.identity);
+                activeTeleportShadow.SetActive(true);
+                isTeleportShadowInstantiated = true;
+            }
+        }
+
         float dt = Time.deltaTime;
 
         // Update cooldown timer
