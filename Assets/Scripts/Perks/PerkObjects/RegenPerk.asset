@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00947845a94f64013b9b1dda85dd90af, type: 3}
-  m_Name: StrengthPerk
+  m_Script: {fileID: 11500000, guid: add85825ea5a10246bc8eb4295bf8070, type: 3}
+  m_Name: RegenPerk
   m_EditorClassIdentifier: 
-  picked: 1
-  perkType: 1
-  perkName: Strength Up
-  sprite: {fileID: -938364597, guid: e68f484a118ab492c8d5df6431da2cdf, type: 3}
-  strengthToAdd: 0.2
+  picked: 0
+  perkType: 3
+  perkName: Regen Up
+  sprite: {fileID: -1586454681, guid: 42bd6badbd10ca44d9d8b912a6ca164a, type: 3}
+  regenToAdd: 0.4

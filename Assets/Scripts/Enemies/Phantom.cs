@@ -62,9 +62,7 @@ public class Phantom : IEnemy
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 
         // Set the projectile's velocity
-        Projectile proj = projectile.GetComponent<Projectile>(); // Adjust speed
-        proj.SetDirection(direction);
-        proj.speed = 5;
+        projectile.GetComponent<Rigidbody2D>().velocity = direction * 5f; // Adjust speed
 
         // Calculate the angle and rotate the projectile
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // Convert to degrees

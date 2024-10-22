@@ -5,9 +5,9 @@ public class LightningProjectile : MonoBehaviour
 {
     public float speed;
     private Collider2D currentTarget;
-    private int chainsLeft;
+    public int chainsLeft;
     private float chainRange;
-    private float damage;
+    public float damage;
 
     public void Initialize(Collider2D target, float dmg, int maxChains, float range)
     {
@@ -42,6 +42,7 @@ public class LightningProjectile : MonoBehaviour
     private void HitTarget(Collider2D target)
     {
         target.GetComponent<IEnemy>().TakeDamage((int)damage);
+        DamagePopupManager.Instance.NewPopup(damage, target.transform.position);
 
         if (chainsLeft > 0)
         {

@@ -10,6 +10,12 @@ public class EggBomb : MonoBehaviour
     public float explosionRadiusf;        // Radius of the cluster spread
     public int dmg;
     public float cooldown;
+    private Player player;
+
+    private void Start()
+    {
+        player = FindObjectOfType<Player>();
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,8 +26,8 @@ public class EggBomb : MonoBehaviour
         else if (collision.CompareTag("Enemy"))
         {
             // Player projectile hits the enemy
-            collision.gameObject.GetComponent<IEnemy>().TakeDamage(dmg);
-            DamagePopupManager.Instance.NewPopup(dmg, collision.transform.position);
+            collision.gameObject.GetComponent<IEnemy>().TakeDamage((int) player.getDMG(dmg));
+            DamagePopupManager.Instance.NewPopup((int)player.getDMG(dmg), collision.transform.position);
             // Trigger cluster release upon impact
             Explode();
         }

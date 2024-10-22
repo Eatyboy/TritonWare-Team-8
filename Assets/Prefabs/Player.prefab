@@ -133,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7636754023017977583}
   moveSpeed: 5
-  maxHealth: 10
-  damage: 2
+  maxHealth: 25
+  damage: 1
   healthRegen: 0
   lifeSteal: 0
   projectileCount: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   heightAmplitude: 2
   duration: 5
   cooldown: 10
-  numberOfSquares: 15
+  numberOfSquares: 3
   rotationSpeed: 50
 --- !u!95 &8098524294551723590
 Animator:
