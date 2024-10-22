@@ -8,6 +8,8 @@ public class PauseUI : MonoBehaviour
     [SerializeField] Button settingButton;
     [SerializeField] Button menuButton;
 
+    [SerializeField] GameObject SettingUI;
+
     public void ResumeGame()
     {
         Debug.Log("Resume Game");
@@ -16,7 +18,7 @@ public class PauseUI : MonoBehaviour
 
     public void SettingMenu()
     {
-        Debug.Log("open setting menu");
+        SettingUI.SetActive(true);
     }
 
     public void GoToMenu()
