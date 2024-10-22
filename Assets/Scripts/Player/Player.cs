@@ -85,11 +85,13 @@ public class Player : MonoBehaviour
         ctrl.Enable();
         ctrl.Gameplay.Ability1.performed += Ability1;
         ctrl.Gameplay.Ability2.performed += Ability2;
+        ctrl.Gameplay.Pause.performed += HandlePauseInput;
     }
 
     private void OnDisable() {
         ctrl.Gameplay.Ability1.performed -= Ability1;
         ctrl.Gameplay.Ability2.performed -= Ability2;
+        ctrl.Gameplay.Pause.performed -= HandlePauseInput;
         ctrl.Disable();
     }
 
@@ -134,14 +136,6 @@ public class Player : MonoBehaviour
 
         Vector2 currentMovement = ctrl.Gameplay.Move.ReadValue<Vector2>();
         if (currentMovement != Vector2.zero) lastMovementDirection = currentMovement.normalized;
-
-        HandlePauseInput();
-        /*
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Die();
-		}
-        */
     }
 
     private void FixedUpdate() {
@@ -151,18 +145,15 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + moveSpeed * fdt * movement);
     }
 
-    private void HandlePauseInput()
+    private void HandlePauseInput(InputAction.CallbackContext ctx)
     { 
-	    if (Input.GetKeyDown(KeyCode.P))
+        if (!EventManager.isGamePaused)
         {
-            if (!EventManager.isGamePaused)
-            {
-                EventManager.InvokeEvent(EventManager.Events.PauseGame);
-            }
-            else
-            { 
-                EventManager.InvokeEvent(EventManager.Events.ResumeGame);
-			}
+            EventManager.InvokeEvent(EventManager.Events.PauseGame);
+        }
+        else
+        { 
+            EventManager.InvokeEvent(EventManager.Events.ResumeGame);
         }
 	}
 
