@@ -11,7 +11,7 @@ public class XPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float offsetXP = playerLevel.mExps[playerLevel.CurrentLevel] - playerLevel.mExps[0];
+        float offsetXP = playerLevel.GetRequiredExp(playerLevel.CurrentLevel - 1);
         float currXP = playerLevel.CurrentExp - offsetXP;
         float requiredXP = playerLevel.RequiredExp - offsetXP; 
         slider.value = currXP / requiredXP;
