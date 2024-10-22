@@ -13,7 +13,7 @@ public class TeleportStrike : MonoBehaviour, IAbility
 
     bool isTeleportShadowInstantiated;
     public float cooldown = 3f;
-    private float cooldownTimer = 0f;
+    public float cooldownTimer = 0f;
 
     private void Start()
     {

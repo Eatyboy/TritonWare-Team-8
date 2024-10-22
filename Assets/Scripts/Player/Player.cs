@@ -38,8 +38,8 @@ public class Player : MonoBehaviour
     // Active Abilities
     public IAbility active1;
     public IAbility active2;
-    private float active1CDTimer;
-    private float active2CDTimer;
+    public float active1CDTimer;
+    public float active2CDTimer;
 
     // Passive Abilities
     public int maxPassiveSlots;

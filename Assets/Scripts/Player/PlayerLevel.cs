@@ -85,13 +85,13 @@ public class PlayerLevel : MonoBehaviour
         if (mCurrentLevel == 2 && !isActive1Unlock)
         {
             isActive1Unlock = true;
-            Debug.Log("Unlock Activity 1");
+            EventManager.InvokeEvent(EventManager.Events.UnlockActive1);
             GetComponent<Player>().active1 = GetComponent<ReflectingShieldAbility>();
 		} 
         if (mCurrentLevel == 5 && !isActive2Unlock)
         { 
             isActive2Unlock = true;
-            Debug.Log("Unlock Activity 2");
+            EventManager.InvokeEvent(EventManager.Events.UnlockActive2);
             GetComponent<Player>().active2 = GetComponent<TeleportStrike>();
 		}
 	}
