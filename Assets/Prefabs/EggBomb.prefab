@@ -103,7 +103,7 @@ MonoBehaviour:
   clusterCount: 5
   clusterSpeed: 10
   explosionRadiusf: 1
-  dmg: 6
+  dmg: 7
   cooldown: 2
 --- !u!50 &-4506954981650030647
 Rigidbody2D:

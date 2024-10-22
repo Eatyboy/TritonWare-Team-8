@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03cc830a43e748528f51d4662e4a10b, type: 3}
   m_Name: SpeedPerk
   m_EditorClassIdentifier: 
+  picked: 0
+  perkType: 0
   perkName: Speed Up
   sprite: {fileID: 458467133, guid: 7ad2285f8649743f3b035efc9d308748, type: 3}
-  speedToAdd: 5
+  speedToAdd: 0.5

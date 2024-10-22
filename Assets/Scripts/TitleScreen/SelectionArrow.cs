@@ -10,6 +10,7 @@ public class SelectionArrow : MonoBehaviour
     [SerializeField] AudioClip changeAudio;
     [SerializeField] AudioClip selectAudio;
 
+
     private void OnEnable()
     {
         currentOption = 0;
@@ -21,10 +22,12 @@ public class SelectionArrow : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             ChangeOption(-1);
-		}
+            PlayChangeAudio();
+        }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             ChangeOption(1);
+            PlayChangeAudio();
 		}
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -46,8 +49,26 @@ public class SelectionArrow : MonoBehaviour
         transform.position = new Vector2(transform.position.x, options[currentOption].transform.position.y);
 	}
 
+    public void OnHoverButton(int idx) 
+	{ 
+        transform.position = new Vector2(transform.position.x, options[idx].transform.position.y);
+        currentOption = idx;
+        PlayChangeAudio();
+	}
+
+    public void PlayChangeAudio()
+    {
+        SFXManager.Instance.PlayAudioClip(changeAudio);
+	}
+
+    public void PlaySelectAudio()
+    {
+        SFXManager.Instance.PlayAudioClip(selectAudio);
+	}
+
     public void SelectOption()
     {
+        // PlaySelectAudio();
         options[currentOption].GetComponent<Button>().onClick.Invoke();
 	}
 }

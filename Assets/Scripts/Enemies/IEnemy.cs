@@ -10,7 +10,7 @@ public class IEnemy: MonoBehaviour
     public float xp;
     protected int spawnDistance = 10;
 
-    [SerializeField] private float invulnerabilityDuration = 1.5f;
+    [SerializeField] private float invulnerabilityDuration = 0.5f;
     protected float transparencyFlashSpeed = 0.2f;
     protected bool isInvulnerable = false;
     protected SpriteRenderer spriteRenderer;

@@ -68,6 +68,7 @@ public class Minion : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage((int)damage);
+                DamagePopupManager.Instance.NewPopup(damage, enemy.transform.position);
             }
         }
     }

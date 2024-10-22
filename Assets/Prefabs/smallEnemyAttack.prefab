@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   lifetime: 3
-  dmg: 1
+  dmg: 2
   isEnemyProjectile: 1
 --- !u!70 &280912312529330629
 CapsuleCollider2D:
