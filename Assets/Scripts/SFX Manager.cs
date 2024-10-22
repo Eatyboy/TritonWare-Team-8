@@ -16,7 +16,7 @@ public class SFXManager : MonoBehaviour
     };
 
     // Start is called before the first frame update
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] public AudioSource audioSource;
 
     [SerializeField] private AudioClip[] playerHit;
     [SerializeField] private AudioClip[] enemyHit;
@@ -47,4 +47,9 @@ public class SFXManager : MonoBehaviour
         };
         audioSource.PlayOneShot(clips[Random.Range(0, clips.Length)]);
     }
+
+    public void PlayAudioClip(AudioClip aClip)
+    {
+        audioSource.PlayOneShot(aClip);
+	}
 }

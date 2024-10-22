@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 167376867}
   - component: {fileID: 167376866}
   - component: {fileID: 167376865}
+  - component: {fileID: 167376868}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -924,6 +925,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &167376868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167376863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1851328841}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: OnHoverButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1851328841}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: PlaySelectAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &168087236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,6 +2602,7 @@ GameObject:
   - component: {fileID: 811530029}
   - component: {fileID: 811530028}
   - component: {fileID: 811530027}
+  - component: {fileID: 811530030}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -2680,6 +2727,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &811530030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811530025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1851328841}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: OnHoverButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1851328841}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: PlaySelectAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &819809348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,6 +3303,7 @@ GameObject:
   - component: {fileID: 1129867933}
   - component: {fileID: 1129867932}
   - component: {fileID: 1129867931}
+  - component: {fileID: 1129867934}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -3335,6 +3428,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1129867934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129867929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1979295313}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: OnHoverButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1979295313}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: PlaySelectAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1189476365
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,6 +3579,7 @@ GameObject:
   - component: {fileID: 1287106756}
   - component: {fileID: 1287106755}
   - component: {fileID: 1287106754}
+  - component: {fileID: 1287106757}
   m_Layer: 5
   m_Name: SettingButton
   m_TagString: Untagged
@@ -3565,6 +3704,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1287106757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287106752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1851328841}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: OnHoverButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1851328841}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: PlaySelectAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1290519915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4550,6 +4734,7 @@ GameObject:
   - component: {fileID: 1601733528}
   - component: {fileID: 1601733527}
   - component: {fileID: 1601733526}
+  - component: {fileID: 1601733529}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -4674,6 +4859,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1601733529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601733524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1979295313}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: OnHoverButton
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1979295313}
+          m_TargetAssemblyTypeName: SelectionArrow, Assembly-CSharp
+          m_MethodName: PlaySelectAudio
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1641015293
 GameObject:
   m_ObjectHideFlags: 0
@@ -5363,8 +5593,8 @@ MonoBehaviour:
   - {fileID: 167376864}
   - {fileID: 1287106753}
   - {fileID: 811530026}
-  changeAudio: {fileID: 0}
-  selectAudio: {fileID: 0}
+  changeAudio: {fileID: 8300000, guid: e11305a982415f543be04c6ebec21768, type: 3}
+  selectAudio: {fileID: 8300000, guid: 5beb2c04b8f1bf84e8a93c3affb7a00a, type: 3}
 --- !u!114 &1851328842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132412,8 +132642,8 @@ MonoBehaviour:
   options:
   - {fileID: 1601733525}
   - {fileID: 1129867930}
-  changeAudio: {fileID: 0}
-  selectAudio: {fileID: 0}
+  changeAudio: {fileID: 8300000, guid: e11305a982415f543be04c6ebec21768, type: 3}
+  selectAudio: {fileID: 8300000, guid: 5beb2c04b8f1bf84e8a93c3affb7a00a, type: 3}
 --- !u!114 &1979295314
 MonoBehaviour:
   m_ObjectHideFlags: 0
