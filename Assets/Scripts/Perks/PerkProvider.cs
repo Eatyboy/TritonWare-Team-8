@@ -6,6 +6,7 @@ public enum PerkType
     SpeedUp,
     StrengthUp,
     HealthUp,
+    RegenUp,
 
     EggBomb,
     InternalBurst,
