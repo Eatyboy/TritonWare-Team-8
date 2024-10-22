@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add85825ea5a10246bc8eb4295bf8070, type: 3}
   m_Name: RegenPerk
   m_EditorClassIdentifier: 
-  picked: 0
+  picked: 1
   perkType: 3
   perkName: Regen Up
-  sprite: {fileID: -1586454681, guid: 42bd6badbd10ca44d9d8b912a6ca164a, type: 3}
+  sprite: {fileID: 21300000, guid: 49f914ce4a36d7c4da42dc4df1c429b1, type: 3}
   regenToAdd: 0.4
