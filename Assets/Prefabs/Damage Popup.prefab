@@ -278,7 +278,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   text: {fileID: 4426325697009070321}
   minDamage: 0
-  maxDamage: 1000
+  maxDamage: 40
   direction: {x: 0.4, y: 0.8, z: 0}
   maxDistance: 0.3
   duration: 0.8
