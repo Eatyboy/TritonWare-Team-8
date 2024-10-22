@@ -6,14 +6,9 @@ public class CloudEnemy : MonoBehaviour
 {
     public GameObject beamPrefab;
     public GameObject waterPelletPrefab; // Reference to the water pellet prefab
-    public float pelletSpawnInterval = 1.0f; // Time interval between pellet spawns
-    public float attackInterval = 3.0f; // Time interval between streak attacks
-    public float screenFlashDuration = 0.5f; // Duration of the flash effect
-    public float attackDuration = 0.5f; // Duration of the attack
-    public float diagonalStreakLength = 5.0f; // Length of the streak
-    public float pelletSpeed = 5f; // Speed of the water pellets
-    public int pelletDamage = 5; // Damage of the water pellets
-    private int beamDuration = 1;
+    public float pelletSpawnInterval; // Time interval between pellet spawns
+    public float pelletSpeed; // Speed of the water pellets
+    public int pelletDamage; // Damage of the water pellets
 
     public float hoverAmplitude = 0.2f; // Amplitude of the hovering motion
     public float hoverSpeed = 2f; // Speed of the hovering motion
@@ -39,7 +34,6 @@ public class CloudEnemy : MonoBehaviour
         initialY = transform.position.y + 30; // Store the initial Y position
 
         InvokeRepeating(nameof(SpawnWaterPellet), 0, pelletSpawnInterval);
-        InvokeRepeating(nameof(FlashAttack), attackInterval, attackInterval);
     }
 
     private void Update()
@@ -75,49 +69,6 @@ public class CloudEnemy : MonoBehaviour
         Rigidbody2D rb = pellet.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, -pelletSpeed); // Move downwards
         pellet.GetComponent<Projectile>().dmg = pelletDamage; // Set the damage
-    }
-
-    private void FlashAttack()
-    {
-        StartCoroutine(FlashAndAttack());
-    }
-
-    private IEnumerator FlashAndAttack()
-    {
-        yield return StartCoroutine(FlashDiagonalStreak());
-        // Call to spawn the beam after the flash
-        SpawnBeam();
-    }
-
-    private IEnumerator FlashDiagonalStreak()
-    {
-        // Camera.main.backgroundColor = Color.red; // Flash effect
-        yield return new WaitForSeconds(screenFlashDuration);
-
-    }
-
-    private void SpawnBeam()
-    {
-
-        // Calculate direction to the player
-        Vector2 directionToPlayer = (player.position - transform.position).normalized;
-
-        // Fire down-right (45 degrees) if player is on the right
-        if (directionToPlayer.x > 0 && directionToPlayer.y < 0)
-        {
-            // Create the beam slightly offset to appear as if fired diagonally
-            Vector3 offset = new Vector3(1f, -1f, 0).normalized; // Down-right
-            GameObject beam = Instantiate(beamPrefab, transform.position + offset, Quaternion.Euler(0, 0, 45)); // Rotate 45 degrees
-            beam.GetComponent<Beam>().Fire(offset, diagonalStreakLength, beamDuration); // Fire direction
-        }
-        // Fire down-left (270 degrees) if player is on the left
-        else if (directionToPlayer.x < 0 && directionToPlayer.y < 0)
-        {
-            // Create the beam slightly offset to appear as if fired diagonally
-            Vector3 offset = new Vector3(-1f, -1f, 0).normalized; // Down-left
-            GameObject beam = Instantiate(beamPrefab, transform.position + offset, Quaternion.Euler(0, 0, 270)); // Rotate 270 degrees
-            beam.GetComponent<Beam>().Fire(offset, diagonalStreakLength, beamDuration); // Fire direction
-        }
     }
 
     protected void AlternateSprites()

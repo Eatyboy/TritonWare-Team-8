@@ -165,12 +165,12 @@ MonoBehaviour:
   dmg: 2
   ms: 2
   xp: 2
-  invulnerabilityDuration: 1.5
+  invulnerabilityDuration: 0.5
   player: {fileID: 0}
   xpPrefab: {fileID: 5888330213938844328, guid: c2e58b89e522f41ccafdf741429cdbd0, type: 3}
   sprite1: {fileID: 21300000, guid: 0605edfd43a954684b13a1620eb3d248, type: 3}
   sprite2: {fileID: 21300000, guid: 98655f0f174e44793a770b9125be99e9, type: 3}
   burstCount: 3
-  burstInterval: 0.5
+  burstInterval: 0.2
   projectilePrefab: {fileID: 4468453746691645294, guid: a7b787285919a47b793d4400970ece42, type: 3}
   attackRate: 2

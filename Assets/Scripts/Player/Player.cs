@@ -296,4 +296,10 @@ public class Player : MonoBehaviour
         passives[passiveCount] = passive;
         passiveCount++;
     }
+
+    public float getDMG(float dmg)
+    {
+        return dmg * damage;
+
+    }
 }

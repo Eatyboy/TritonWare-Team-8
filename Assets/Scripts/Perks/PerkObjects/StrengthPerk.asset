@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00947845a94f64013b9b1dda85dd90af, type: 3}
   m_Name: StrengthPerk
   m_EditorClassIdentifier: 
+  picked: 1
   perkType: 1
   perkName: Strength Up
   sprite: {fileID: -938364597, guid: e68f484a118ab492c8d5df6431da2cdf, type: 3}
-  strengthToAdd: 10
+  strengthToAdd: 0.2

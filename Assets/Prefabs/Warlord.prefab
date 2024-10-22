@@ -103,14 +103,13 @@ MonoBehaviour:
   dmg: 5
   ms: 1
   xp: 3
-  invulnerabilityDuration: 1.5
+  invulnerabilityDuration: 0.5
   player: {fileID: 0}
   xpPrefab: {fileID: 5888330213938844328, guid: c2e58b89e522f41ccafdf741429cdbd0, type: 3}
   sprite1: {fileID: 21300000, guid: 09adac9b0f4ef49e1baa4cba3f4017f9, type: 3}
   sprite2: {fileID: 21300000, guid: 82d5a8ec29dcc43918599b9f400d82aa, type: 3}
   aoePrefab: {fileID: 9188188632484723088, guid: 754244e5ad9c046cc9c99fe5f3abebf0, type: 3}
-  projectileCount: 60
-  attackRate: 2
+  attackRate: 5
 --- !u!58 &9154846433627089940
 CircleCollider2D:
   m_ObjectHideFlags: 0
